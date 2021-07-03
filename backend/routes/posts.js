@@ -2,7 +2,6 @@ const router = require("express").Router();
 const postController = require("../controllers/posts")
 
 
-
 //create a post
 router.post("/", postController.createPost)
 
@@ -20,5 +19,6 @@ router.get("/:id", postController.getPost)
 
 //get timeline posts
 router.get("/timeline/all", postController.getTimelinePost);
+
 
 module.exports = router;

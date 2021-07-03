@@ -86,12 +86,10 @@ const getTimelinePost = async (req, res) => {
 }
 
 module.exports = {
-
     createPost,
     updatePost,
     deletePost,
     likeOrDislikePost,
     getPost,
     getTimelinePost
-
 }

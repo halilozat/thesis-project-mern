@@ -25,7 +25,8 @@ app.listen(process.env.PORT, () => {
     mongoose.connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
     })
     .then(() => console.log('connected to db'))
     .catch((err) => console.log(err))
