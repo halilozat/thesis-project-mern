@@ -5,7 +5,7 @@ export default function Navi() {
     return (
         <div>
             <Segment inverted >
-                <Menu inverted pointing secondary fixed >
+                <Menu inverted pointing primary fixed >
                     <Menu.Item name='home'/>
                     <Menu.Item name='messages'/>
                     <Menu.Item name='friends'/>
@@ -13,6 +13,7 @@ export default function Navi() {
                         <Button secondary>Register</Button>
                         <Button secondary>Login</Button>
                     </Menu.Item>
+                    
                     <Menu.Item>
                         <Input className='icon' icon='search' placeholder='Search...' />
                     </Menu.Item>
