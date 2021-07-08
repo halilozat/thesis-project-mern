@@ -1,4 +1,3 @@
-import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import Navi from './layouts/Navi';
 import Home from "./pages/home/Home";
@@ -13,7 +12,8 @@ import {
 function App() {
   return (
     <div className="App">
-      <Navi />
+      
+      
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
