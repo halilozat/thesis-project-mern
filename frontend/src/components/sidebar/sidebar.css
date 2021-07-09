@@ -33,6 +33,11 @@
     align-items: center;
     margin-bottom: 20px;
   }
+
+  .sidebarListItemText{
+    font-size: medium;
+    margin-left: 5px;
+  }
   
   .sidebarIcon {
     margin-right: 15px;
