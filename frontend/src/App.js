@@ -1,5 +1,4 @@
 import 'semantic-ui-css/semantic.min.css'
-import Navi from './layouts/Navi';
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
@@ -11,7 +10,7 @@ import {
 
 function App() {
   return (
-    <div className="App">
+    <div>
       
       
       <Switch>
