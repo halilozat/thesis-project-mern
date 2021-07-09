@@ -48,8 +48,9 @@
 .postImg{
     margin-top: 20px;
     width: 100%;
-    max-height: 500px;
+    max-height: 100%;
     object-fit: contain;
+    border-radius: 20px;
 }
 
 .postBottom{
@@ -60,7 +61,13 @@
 
 .postBottomLeft{
     display: flex;
-    align-items: center;   
+    align-items: center; 
+    margin-left: 5%;
+}
+.postBottomRight{
+  display: flex;
+  align-items: center; 
+  margin-right: 5%;
 }
 
 .likeIcon{
