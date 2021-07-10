@@ -12,6 +12,7 @@ import {
 } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (
@@ -56,7 +57,12 @@ export default function Sidebar() {
                         <span className="sidebarListItemText">Courses</span>
                     </li>
                 </ul>
-                <button className="sidebarButton">Show More</button>
+                {/* <button className="sidebarButton">Show More</button> */}
+                <hr className="sidebarHr" />
+                <button className="sidebarAddButton">Görüş Belirt</button>
+                <button className="sidebarAddButton">Kitap İncele</button>
+                <button className="sidebarAddButton">Dizi İncele</button>
+                <button className="sidebarAddButton">Film İncele</button>
                 <hr className="sidebarHr" />
                 <ul className="sidebarFriendList">
                     {Users.map((u) => (

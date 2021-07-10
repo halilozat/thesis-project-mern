@@ -3,6 +3,7 @@
     width: 100%;
     background-color: #2e3236;
     display: flex;
+    flex-direction: row;
     align-items: center;
     position: sticky;
     top: 0;
@@ -22,7 +23,7 @@
   }
   
   .topbarCenter {
-    flex: 5;
+    flex: 3;
   }
   
   .searchbar {
@@ -50,7 +51,7 @@
   }
   
   .topbarRight {
-    flex: 4;
+    flex: 3;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -68,7 +69,7 @@
   }
   
   .topbarIconItem {
-    margin-right: 15px;
+    margin-left: 20px;
     cursor: pointer;
     position: relative;
   }
@@ -89,9 +90,11 @@
   }
   
   .topbarImg {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+    margin-left: auto;
+    margin-right: 10px;
   }

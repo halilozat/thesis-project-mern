@@ -11,13 +11,11 @@ import {
 function App() {
   return (
     <div>
-      
-      
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/profile" exact component={Profile} />
+        <Route path="/profile:username" exact component={Profile} />
       </Switch>
     </div>
   );
