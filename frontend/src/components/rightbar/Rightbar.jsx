@@ -1,7 +1,6 @@
 import "./rightbar.css";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
-import { MovieIcon, LocalMovies, MenuBook } from '@material-ui/icons/Movie';
 import Weekly from "../weekly/Weekly";
 import Categories from "../categories/Categories";
 

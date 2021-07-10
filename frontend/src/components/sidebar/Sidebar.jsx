@@ -12,7 +12,6 @@ import {
 } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
-import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (

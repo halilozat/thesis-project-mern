@@ -7,7 +7,7 @@ import axios from 'axios'
 export default function Feed() {
 
     const [posts, setPosts] = useState([])
-    const [text, setText] = useState("")
+    // const [text, setText] = useState("")
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -23,7 +23,7 @@ export default function Feed() {
                 <div className="feedWrapper">
                     <Share />
                     {posts.map((p) => (
-                        <Post key={p.id} post={p} />
+                        <Post key={p._id} post={p} />
                     ))}
 
 
