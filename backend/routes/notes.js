@@ -16,5 +16,7 @@ router.get("/:id", noteController.getNote)
 
 router.get("/mynotes/:username", noteController.getUserNotes)
 
+router.get("/allnotes/getall", noteController.getAll)
+
 
 module.exports = router;

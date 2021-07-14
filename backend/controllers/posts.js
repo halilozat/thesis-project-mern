@@ -69,6 +69,8 @@ const getPost = async (req, res) => {
     }
 }
 
+
+
 //get timeline posts
 const getTimelinePost = async (req, res) => {
     try {

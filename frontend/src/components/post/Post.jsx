@@ -42,7 +42,7 @@ export default function Post({ post }) {
             <span className="postUsername">
               {user.username}
             </span>
-
+        
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">

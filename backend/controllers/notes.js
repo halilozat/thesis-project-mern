@@ -66,6 +66,17 @@ const getUserNotes = async (req, res) => {
     }
 };
 
+//gett all notes
+const getAll = async (req, res) => {
+    try {
+        const notes = await Note.find()
+        res.status(200).json(notes)
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
 
 
 module.exports = {
@@ -73,5 +84,6 @@ module.exports = {
     updateNote,
     deleteNote,
     getNote,
-    getUserNotes
+    getUserNotes,
+    getAll
 }
