@@ -13,6 +13,7 @@ export default function Post({ post }) {
   const [like, setLike] = useState(post.likes.length)
   const [isLiked, setIsLiked] = useState(false)
   const [user, setUser] = useState({})
+  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1)
@@ -42,7 +43,7 @@ export default function Post({ post }) {
             <span className="postUsername">
               {user.username}
             </span>
-        
+
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
@@ -51,7 +52,7 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={post.photo} alt="" />
+          <img className="postImg" src={publicFolder + post.photo} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

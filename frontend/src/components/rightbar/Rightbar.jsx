@@ -5,6 +5,9 @@ import Weekly from "../weekly/Weekly";
 import Categories from "../categories/Categories";
 
 export default function Rightbar({ profile }) {
+    
+    const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
+    
     const HomeRightbar = () => {
         return (
             <>
@@ -12,7 +15,7 @@ export default function Rightbar({ profile }) {
 
                 <Categories/>
 
-                <img className="rightbarAd" src="assets/manzara.jpg" alt="" />
+                <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
 
 
                 <h4 className="rightbarTitle">Online Friends</h4>
