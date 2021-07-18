@@ -20,5 +20,8 @@ router.get("/:id", postController.getPost)
 //get timeline posts
 router.get("/timeline/:userId", postController.getTimelinePost);
 
+//get user's posts
+router.get("/profile/:username", postController.getUserPost)
+
 
 module.exports = router;

@@ -5,8 +5,7 @@ import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 import {
   Switch,
-  Route,
-  Router
+  Route
 } from "react-router-dom";
 
 

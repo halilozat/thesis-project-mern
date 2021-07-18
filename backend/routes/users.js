@@ -11,7 +11,7 @@ router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
 
 //get a user
-router.get("/:id", userController.getUser);
+router.get("/", userController.getUser);
 
 //follow a user
 router.put("/:id/follow", userController.followUser);
