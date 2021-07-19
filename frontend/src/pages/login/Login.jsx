@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -11,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+
 
 function Copyright() {
   return (
@@ -56,6 +56,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// const email = useRef();
+// const password = useRef();
+
+const handleClick = (e) => {
+  e.preventDefault()
+
+
+}
+
+
 export default function SignInSide() {
   const classes = useStyles();
 
@@ -71,8 +81,9 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Giriş Yap
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={handleClick}>
             <TextField
+
               variant="outlined"
               margin="normal"
               required
@@ -82,8 +93,11 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+
+              required
             />
             <TextField
+
               variant="outlined"
               margin="normal"
               required
@@ -93,8 +107,9 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              required
             />
-            
+
             <Button
               type="submit"
               fullWidth

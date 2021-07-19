@@ -13,11 +13,11 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`)
-      setUser(res.data)
-    }
-    fetchUser()
-  }, [username])
+      const res = await axios.get(`/users?username=${username}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [username]);
 
 
   return (

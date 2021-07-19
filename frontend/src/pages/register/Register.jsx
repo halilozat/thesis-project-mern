@@ -110,7 +110,7 @@ export default function SignInSide() {
                         </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link to="/login" variant="body2">
                                 Zaten hesabınız var mı? Oturum aç
                                 </Link>
                             </Grid>
