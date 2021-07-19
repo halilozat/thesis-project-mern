@@ -4,6 +4,8 @@ import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 
+
+
 export default function Login() {
   const email = useRef();
   const password = useRef();
@@ -23,9 +25,9 @@ export default function Login() {
         <div className="loginLeft">
           <h3 className="loginLogo">Thesis App</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
           </span>
         </div>
+
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleClick}>
             <input
