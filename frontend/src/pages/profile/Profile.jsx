@@ -6,6 +6,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import { useParams } from "react-router";
 
+
 export default function Profile() {
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
   const [user, setUser] = useState({})
