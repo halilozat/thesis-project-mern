@@ -13,11 +13,13 @@ router.delete("/:id", userController.deleteUser);
 //get a user
 router.get("/", userController.getUser);
 
+//get friends
+router.get("/friends/:userId", userController.getFriends);
+
 //follow a user
 router.put("/:id/follow", userController.followUser);
 
 //unfollow a user
 router.put("/:id/unfollow", userController.unfollowUser);
-
 
 module.exports = router;

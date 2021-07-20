@@ -35,7 +35,7 @@ function App() {
             : <Register />
           }
         </Route>
-        <Route path="/profile:username" component={Profile} />
+        <Route path="/profile/:username" component={Profile} />
       </Switch>
 
     </div>

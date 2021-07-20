@@ -1,16 +1,17 @@
-import axios from "axios";
-import { useState, useEffect } from "react"
 import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
+import Rightbar from "../../components/rightbar/Rightbar";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router";
-
+import { Col } from 'react-bootstrap'
 
 export default function Profile() {
-  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
-  const [user, setUser] = useState({})
-  const username = useParams().username
+  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+  const [user, setUser] = useState({});
+  const username = useParams().username;
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -31,12 +32,20 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || publicFolder + "person/noCover.png"}
+                src={
+                  user.coverPicture
+                    ? publicFolder + user.coverPicture
+                    : publicFolder + "person/noCover.png"
+                }
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.coverPicture || publicFolder + "person/noAvatar.png"}
+                src={
+                  user.profilePicture
+                    ? publicFolder + user.profilePicture
+                    : publicFolder + "person/noAvatar.png"
+                }
                 alt=""
               />
             </div>
@@ -45,9 +54,14 @@ export default function Profile() {
               <span className="profileInfoDesc">{user.desc}</span>
             </div>
           </div>
+
           <div className="profileRightBottom">
-            <Feed username={username} />
-            {/* <Rightbar profile/> */}
+            <Col md={8}>
+              <Feed username={username} />
+            </Col>
+            <Col>
+              <Rightbar user={user} />
+            </Col>
           </div>
         </div>
       </div>

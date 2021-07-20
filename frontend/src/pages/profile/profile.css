@@ -3,7 +3,7 @@
 }
 
 .profileRight{
-    flex: 20;
+    flex: 30;
 }
 
 .profileCover{
@@ -45,6 +45,6 @@
     font-weight: 300;
 }
 
-/* .profileRightBottom{
+.profileRightBottom{
     display: flex;
-} */
+}
