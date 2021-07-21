@@ -1,13 +1,13 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
+import Categories from "../categories/Categories";
+import axios from 'axios'
 import Online from "../online/Online";
 import Weekly from "../weekly/Weekly";
-import Categories from "../categories/Categories";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from '../../context/AuthContext'
-import axios from 'axios'
 import { Link } from "react-router-dom";
-import { Add, Remove } from "@material-ui/icons";
+import { Users } from "../../dummyData";
+import { AuthContext } from '../../context/AuthContext'
+import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBook, TrackChanges, Info } from "@material-ui/icons";
+import { useContext, useEffect, useState } from "react";
 
 export default function Rightbar({ user }) {
 
@@ -15,7 +15,7 @@ export default function Rightbar({ user }) {
     const [friends, setFriends] = useState([]);
     const { user: currentUser, dispatch } = useContext(AuthContext);
     const [followed, setFollowed] = useState(
-        currentUser.followings.includes(user?.id)
+        currentUser.followings.includes(user?._id)
     );
 
     useEffect(() => {
@@ -79,18 +79,22 @@ export default function Rightbar({ user }) {
                         {followed ? <Remove /> : <Add />}
                     </button>
                 )}
-                <h4 className="rightbarTitle">User information</h4>
+                <h4 className="rightbarTitle"><Info/>Kullanıcı Bilgileri<Info/></h4>
                 <div className="rightbarInfo">
                     <div className="rightbarInfoItem">
-                        <span className="rightbarInfoKey">City:</span>
+                        <span className="rightbarInfoKey"><LocationOn /> Şehir :</span>
                         <span className="rightbarInfoValue">{user.city}</span>
                     </div>
                     <div className="rightbarInfoItem">
-                        <span className="rightbarInfoKey">From:</span>
+                        <span className="rightbarInfoKey"><Cake /> Doğum Yeri :</span>
                         <span className="rightbarInfoValue">{user.from}</span>
                     </div>
                     <div className="rightbarInfoItem">
-                        <span className="rightbarInfoKey">Relationship:</span>
+                        <span className="rightbarInfoKey"><Work /> Meslek :</span>
+                        <span className="rightbarInfoValue">Yazılım Mühendisliği</span>
+                    </div>
+                    <div className="rightbarInfoItem">
+                        <span className="rightbarInfoKey"><Favorite /> İlişki Durumu :</span>
                         <span className="rightbarInfoValue">
                             {user.relationship === 1
                                 ? "Single"
@@ -100,6 +104,26 @@ export default function Rightbar({ user }) {
                         </span>
                     </div>
                 </div>
+
+                <h4 className="rightbarTitle"><TrackChanges />2021 Hedefleri<TrackChanges /></h4>
+                <div className="rightbarInfo">
+                    <div className="rightbarInfoItem">
+                        <span className="rightbarInfoKey"><MenuBook /> Okuduğu Kitaplar :</span>
+                        <span className="rightbarInfoValue">40/100</span>
+                    </div>
+
+                    <div className="rightbarInfoItem">
+                        <span className="rightbarInfoKey"><Theaters /> İzlediği Filmler :</span>
+                        <span className="rightbarInfoValue">20/50</span>
+                    </div>
+
+                    <div className="rightbarInfoItem">
+                        <span className="rightbarInfoKey"><Movie /> İzlediği Diziler :</span>
+                        <span className="rightbarInfoValue">5/15</span>
+                    </div>
+
+                </div>
+
                 <h4 className="rightbarTitle">User friends</h4>
                 <div className="rightbarFollowings">
                     {friends.map((friend) => (

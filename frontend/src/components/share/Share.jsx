@@ -42,10 +42,9 @@ export default function Share() {
                         className="shareProfileImg"
                         src={
                             user.profilePicture
-                                ? publicFolder + user.profilePicture
-                                : publicFolder + "person/noAvatar.png"
-                        }
-                        alt=""
+                              ? publicFolder + user.profilePicture
+                              : publicFolder + "person/noAvatar.png"}
+                          alt=""
                     />
                     <input
                         placeholder={"Aklında ne var " + user.username + "?"}
@@ -73,20 +72,8 @@ export default function Share() {
                                 onChange={(e) => setFile(e.target.files[0])}
                             />
                         </label>
-                        {/* <div className="shareOption">
-                            <Label htmlColor="blue" className="shareIcon" />
-                            <span className="shareOptionText">Tag</span>
-                        </div>
-                        <div className="shareOption">
-                            <Room htmlColor="green" className="shareIcon" />
-                            <span className="shareOptionText">Location</span>
-                        </div>
-                        <div className="shareOption">
-                            <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
-                            <span className="shareOptionText">Feelings</span>
-                        </div> */}
                     </div>
-                    <button className="shareButton" type="submit">Share</button>
+                    <button className="shareButton" type="submit">Paylaş</button>
                 </form>
             </div>
         </div>
