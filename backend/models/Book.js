@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MovieSchema = new mongoose.Schema(
+const BookSchema = new mongoose.Schema(
     {
         userId: {
             type: String,
@@ -22,8 +22,12 @@ const MovieSchema = new mongoose.Schema(
         point: {
             type: Number,
         },
+        fav: {
+            type: Boolean, 
+            default: false
+        }
     },
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Movie", MovieSchema);
+module.exports = mongoose.model("Book", BookSchema);

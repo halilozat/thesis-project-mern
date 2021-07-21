@@ -8,6 +8,9 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const noteRoute = require("./routes/notes");
+const bookRoute = require("./routes/books")
+const movieRoute = require("./routes/movies")
+const serieRoute = require("./routes/series")
 const multer = require("multer")
 const path = require("path")
 
@@ -42,6 +45,9 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/notes", noteRoute);
+app.use("/api/books", bookRoute);
+app.use("/api/movies", movieRoute);
+app.use("/api/series", serieRoute);
 
 
 app.listen(process.env.PORT, () => {

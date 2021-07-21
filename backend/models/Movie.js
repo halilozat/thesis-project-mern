@@ -22,6 +22,10 @@ const MovieSchema = new mongoose.Schema(
         point: {
             type: Number,
         },
+        fav: {
+            type: Boolean, 
+            default: false
+        }
     },
     { timestamps: true }
 );
