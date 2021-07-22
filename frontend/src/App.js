@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+import book from './components/books/Book';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           }
         </Route>
         <Route path="/profile/:username" component={Profile} />
+        <Route path="/book" component={book} />
       </Switch>
 
     </div>
