@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./sidebar.css"
 import {
     RssFeed,
@@ -12,9 +13,24 @@ import {
 } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import BookModal from '../modals/BookModal'
+
+
+
+
 
 export default function Sidebar() {
-    return (
+    const [open, setOpen] = useState(false)
+    
+    const handleOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+
+      return (
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <hr className="sidebarHr" />
@@ -59,7 +75,7 @@ export default function Sidebar() {
                 {/* <button className="sidebarButton">Show More</button> */}
                 <hr className="sidebarHr" />
                 <button className="sidebarAddButton">Görüş Belirt</button>
-                <button className="sidebarAddButton">Kitap İncele</button>
+                <BookModal/>
                 <button className="sidebarAddButton">Dizi İncele</button>
                 <button className="sidebarAddButton">Film İncele</button>
                 <hr className="sidebarHr" />
@@ -69,6 +85,7 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </div>
+
         </div>
     )
 }
