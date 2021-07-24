@@ -1,3 +1,4 @@
+import './modalBook.css'
 import React, { useContext, useRef, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input, Modal } from '@material-ui/core';
@@ -84,26 +85,74 @@ export default function SimpleModal() {
     };
 
     const body = (
-        <div style={modalStyle} className={classes.paper}>
+        // <div style={modalStyle} className={classes.paper}>
 
-                <input
-                    placeholder="Kitap Adı"
-                    ref={name}
-                />
-                <br />
-                <input
-                    placeholder="Yazar Adı"
-                    ref={writer}
-                />
-                <br />
-                <br />
-            <form onSubmit={submitHandler}>   
-                <Button variant="contained" color="primary" type="submit">Ekle</Button>
-                <br />
-                <Button variant="contained" color="secondary" onClick={handleClose}>Kapat</Button>
-            </form>
+        //         <input
+        //             placeholder="Kitap Adı"
+        //             ref={name}
+        //         />
+        //         <br />
+        //         <input
+        //             placeholder="Yazar Adı"
+        //             ref={writer}
+        //         />
+        //         <br />
+        //         <br />
+        //     <form onSubmit={submitHandler}>   
+        //         <Button variant="contained" color="primary" type="submit">Ekle</Button>
+        //         <br />
+        //         <Button variant="contained" color="secondary" onClick={handleClose}>Kapat</Button>
+        //     </form>
 
+        // </div>
+        <div className="backgroundModal">
+            <div className="container">
+                <div className="screen">
+                    <div className="screen-header">
+                        <div className="screen-header-left">
+                            <div className="screen-header-button close"></div>
+                            <div className="screen-header-button maximize"></div>
+                            <div className="screen-header-button minimize"></div>
+                        </div>
+                        <div className="screen-header-right">
+                            <div className="screen-header-ellipsis"></div>
+                            <div className="screen-header-ellipsis"></div>
+                            <div className="screen-header-ellipsis"></div>
+                        </div>
+                    </div>
+                    <div className="screen-body">
+                        <div className="screen-body-item left">
+                            <div className="app-title">
+                                <span>BIR KITAP</span>
+                                <span>EKLE</span>
+                            </div>
+                            <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                        </div>
+                        <div className="screen-body-item">
+                            <div className="app-form">
+                                <div className="app-form-group">
+                                    <input className="app-form-control" placeholder="Kitap Adı"/>
+                                </div>
+                                <div className="app-form-group">
+                                    <input className="app-form-control" placeholder="Yazar Adı" />
+                                </div>
+                                {/* <div className="app-form-group">
+                                    <input className="app-form-control" placeholder="CONTACT NO" />
+                                </div> */}
+                                <div className="app-form-group message">
+                                    <input className="app-form-control" placeholder="KITAP INCELEMESI" />
+                                </div>
+                                <div className="app-form-group buttons">
+                                    <button className="app-form-button" onClick={handleClose}>KAPAT</button>
+                                    <button className="app-form-button" >EKLE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     );
 
     return (
