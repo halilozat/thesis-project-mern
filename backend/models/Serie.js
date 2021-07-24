@@ -10,7 +10,6 @@ const SerieSchema = new mongoose.Schema(
         {
             type: String,
             required: true,
-            unique: true
         },
         desc: {
             type: String,

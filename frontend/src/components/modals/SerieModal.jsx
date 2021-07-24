@@ -9,7 +9,6 @@ import { Cancel, PermMedia } from "@material-ui/icons"
 function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
-
 function getModalStyle() {
     const top = 50 + rand();
     const left = 50 + rand();
@@ -20,7 +19,6 @@ function getModalStyle() {
         transform: `translate(-${top}%, -${left}%)`,
     };
 }
-
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
@@ -43,7 +41,6 @@ export default function SimpleModal() {
     const { user } = useContext(AuthContext);
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
     const name = useRef();
-    const writer = useRef();
     const desc = useRef();
     const [file, setFile] = useState(null);
 
@@ -52,7 +49,6 @@ export default function SimpleModal() {
         const newBook = {
             userId: user._id,
             name: name.current.value,
-            writer: writer.current.value,
             desc: desc.current.value,
         };
         if (file) {
@@ -66,7 +62,7 @@ export default function SimpleModal() {
             } catch (err) { }
         }
         try {
-            await axios.post("/books", newBook);
+            await axios.post("/series", newBook);
             window.location.reload();
         } catch (err) { }
     };
@@ -104,7 +100,7 @@ export default function SimpleModal() {
                     <div className="screen-body">
                         <div className="screen-body-item left">
                             <div className="app-title">
-                                <span>BIR KITAP</span>
+                                <span>BIR DIZI</span>
                                 <span>EKLE</span>
                             </div>
                             <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div>
@@ -114,24 +110,14 @@ export default function SimpleModal() {
                                 <div className="app-form-group">
                                     <input
                                         className="app-form-control"
-                                        placeholder="Kitap Adı"
+                                        placeholder="Dizi Adı"
                                         ref={name}
                                     />
                                 </div>
-                                <div className="app-form-group">
-                                    <input
-                                        className="app-form-control"
-                                        placeholder="Yazar Adı"
-                                        ref={writer}
-                                    />
-                                </div>
-                                {/* <div className="app-form-group">
-                                    <input className="app-form-control" placeholder="CONTACT NO" />
-                                </div> */}
                                 <div className="app-form-group message">
                                     <input
                                         className="app-form-control"
-                                        placeholder="KITAP INCELEMESI"
+                                        placeholder="Dizi İncelemesi"
                                         ref={desc}
                                     />
                                 </div>
@@ -153,7 +139,7 @@ export default function SimpleModal() {
     return (
         <div>
             <button type="button" className="sidebarAddButton" onClick={handleOpen}>
-                Kitap Ekle
+                Dizi Ekle
             </button>
             <Modal
                 open={open}

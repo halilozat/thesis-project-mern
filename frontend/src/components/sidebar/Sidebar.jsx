@@ -14,6 +14,8 @@ import {
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import BookModal from '../modals/BookModal'
+import SerieModal from '../modals/SerieModal'
+import MovieModal from '../modals/MovieModal'
 
 
 
@@ -72,12 +74,10 @@ export default function Sidebar() {
                         <span className="sidebarListItemText">Courses</span>
                     </li>
                 </ul>
-                {/* <button className="sidebarButton">Show More</button> */}
                 <hr className="sidebarHr" />
-                <button className="sidebarAddButton">Görüş Belirt</button>
                 <BookModal/>
-                <button className="sidebarAddButton">Dizi İncele</button>
-                <button className="sidebarAddButton">Film İncele</button>
+                <SerieModal/>
+                <MovieModal/>
                 <hr className="sidebarHr" />
                 <ul className="sidebarFriendList">
                     {Users.map((u) => (

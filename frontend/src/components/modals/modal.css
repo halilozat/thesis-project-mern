@@ -69,6 +69,9 @@
   .screen-header-button.close {
     background: #ed1c6f;
   }
+  .screen-header-button.red {
+    background: #ed1c6f;
+  }
   
   .screen-header-button.maximize {
     background: #e8e925;
