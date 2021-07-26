@@ -3,7 +3,7 @@ import { Search, Person, Chat, Notifications } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import {logoutCall} from '../../apiCalls'
+import { logoutCall } from '../../apiCalls'
 
 
 export default function Topbar() {
@@ -18,13 +18,11 @@ export default function Topbar() {
   }
 
 
-
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo" >Thesis</span>
-          <span className="topbarLink" onClick={handleClick}>Sign out</span>
         </Link>
       </div>
       <div className="topbarCenter">
@@ -55,7 +53,8 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <Link to={`/profile/${user.username}`}>
+
+        <div class="dropdown">
           <img src={
             user.profilePicture
               ? publicFolder + user.profilePicture
@@ -64,7 +63,14 @@ export default function Topbar() {
             alt=""
             className="topbarImg"
           />
-        </Link>
+          <div class="dropdown-content">
+            <Link style={{ textDecoration: "none", textAlign:"left"}} to={`/profile/${user.username}`}>
+              <a >Profile Git!</a>
+            </Link>
+            <a className="dropdown-content" onClick={handleClick} style={{ textDecoration: "none", cursor:"pointer", textAlign:"center"}}> Sign out</a>
+          </div>
+        </div>
+
       </div>
     </div>
   )
