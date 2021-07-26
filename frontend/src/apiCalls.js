@@ -9,3 +9,7 @@ export const loginCall = async (userCredential, dispatch) => {
     dispatch({ type: "LOGIN_FAILURE", payload: err });
   }
 };
+
+export const logoutCall = async (dispatch) => {
+  dispatch({ type: "LOGOUT" });
+};
