@@ -9,12 +9,12 @@ const BookSchema = new mongoose.Schema(
         name:
         {
             type: String,
-            require: true,
+            required: true,
         },
         writer:
         {
             type: String,
-            require: true,
+            required: true,
         },
         desc: {
             type: String,

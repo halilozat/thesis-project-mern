@@ -4,8 +4,8 @@
     background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
 }
 .chat{
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 3%;
+    margin-bottom: 4%;
     
 }
 /* .chat{
@@ -14,7 +14,7 @@
     
 } */
 .card{
-    height: 500px;
+    height: 750px;
     border-radius: 15px !important;
     background-color: rgba(0,0,0,0.4) !important;
     
@@ -24,9 +24,7 @@
     overflow-y: auto;
     white-space: nowrap;
 }
-.msg_card_body{
-    overflow-y: auto;
-}
+
 .card-header{
     border-radius: 15px 15px 0 0 !important;
     border-bottom: 0 !important;
@@ -126,19 +124,7 @@ border:1.5px solid white;
 .offline{
 background-color: #c23616 !important;
 }
-.user_info{
-margin-top: auto;
-margin-bottom: auto;
-margin-left: 15px;
-}
-.user_info span{
-font-size: 20px;
-color: white;
-}
-.user_info p{
-font-size: 10px;
-color: rgba(255,255,255,0.6);
-}
+
 .video_cam{
 margin-left: 50px;
 margin-top: 5px;
@@ -181,9 +167,7 @@ bottom: -15px;
 color: rgba(255,255,255,0.5);
 font-size: 10px;
 }
-.msg_head{
-position: relative;
-}
+
 #action_menu_btn{
 position: absolute;
 right: 10px;

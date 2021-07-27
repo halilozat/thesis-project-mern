@@ -1,0 +1,22 @@
+.msg_head{
+    position: relative;
+}
+
+.msg_card_body{
+    overflow-y: auto;
+}
+
+.user_info{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+.user_info span{
+    font-size: 20px;
+    color: white;
+}
+.user_info p{
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+}
+
