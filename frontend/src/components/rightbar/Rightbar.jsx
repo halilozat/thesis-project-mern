@@ -15,7 +15,7 @@ export default function Rightbar({ user }) {
     const [friends, setFriends] = useState([]);
     const { user: currentUser, dispatch } = useContext(AuthContext);
     const [followed, setFollowed] = useState(
-        currentUser.followings.includes(user?._id)
+        currentUser.followings.includes(user?.id)
     );
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function Rightbar({ user }) {
 
                 <Categories />
 
-                <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
+                {/* <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" /> */}
 
 
                 <h4 className="rightbarTitle">Online Friends</h4>
@@ -79,7 +79,7 @@ export default function Rightbar({ user }) {
                         {followed ? <Remove /> : <Add />}
                     </button>
                 )}
-                <h4 className="rightbarTitle"><Info/>Kullanıcı Bilgileri<Info/></h4>
+                <h4 className="rightbarTitle"><Info />Kullanıcı Bilgileri<Info /></h4>
                 <div className="rightbarInfo">
                     <div className="rightbarInfoItem">
                         <span className="rightbarInfoKey"><LocationOn /> Şehir :</span>
@@ -129,7 +129,7 @@ export default function Rightbar({ user }) {
                     {friends.map((friend) => (
                         <Link
                             to={"/profile/" + friend.username}
-                            style={{ textDecoration: "none", textAlign: "center", color: "black" }}
+                            style={{ textDecoration: "none" }}
                         >
                             <div className="rightbarFollowing">
                                 <img
