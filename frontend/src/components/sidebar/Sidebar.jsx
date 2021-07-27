@@ -16,23 +16,23 @@ import CloseFriend from "../closeFriend/CloseFriend";
 import BookModal from '../modals/BookModal'
 import SerieModal from '../modals/SerieModal'
 import MovieModal from '../modals/MovieModal'
-
+import { Link } from "react-router-dom";
 
 
 
 
 export default function Sidebar() {
     const [open, setOpen] = useState(false)
-    
+
     const handleOpen = () => {
         setOpen(true);
-      };
-    
-      const handleClose = () => {
-        setOpen(false);
-      };
+    };
 
-      return (
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <hr className="sidebarHr" />
@@ -43,7 +43,9 @@ export default function Sidebar() {
                     </li>
                     <li className="sidebarListItem">
                         <Chat fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Chats</span>
+                        <Link to="/messenger" style={{ textDecoration: "none", color:"white" }}>
+                            <span className="sidebarListItemText">Chats</span>
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
                         <PlayCircleFilledOutlined fontSize="large" className="sidebarIcon" />
@@ -75,15 +77,11 @@ export default function Sidebar() {
                     </li>
                 </ul>
                 <hr className="sidebarHr" />
-                <BookModal/>
-                <SerieModal/>
-                <MovieModal/>
+                <BookModal />
+                <SerieModal />
+                <MovieModal />
                 <hr className="sidebarHr" />
-                <ul className="sidebarFriendList">
-                    {Users.map((u) => (
-                        <CloseFriend key={u.id} user={u} />
-                    ))}
-                </ul>
+
             </div>
 
         </div>

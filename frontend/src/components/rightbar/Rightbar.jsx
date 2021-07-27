@@ -59,13 +59,7 @@ export default function Rightbar({ user }) {
                 {/* <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" /> */}
 
 
-                <h4 className="rightbarTitle">Online Friends</h4>
-
-                <ul className="rightbarFriendList">
-                    {Users.map((u) => (
-                        <Online key={u.id} user={u} />
-                    ))}
-                </ul>
+                
             </>
         );
     };
