@@ -1,9 +1,10 @@
 import axios from 'axios'
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import Conversation from '../../components/conversations/Conversation'
 import Message from '../../components/messages/Message'
 import Topbar from '../../components/topbar/Topbar'
 import { AuthContext } from '../../context/AuthContext'
+import { io } from "socket.io-client";
 import './messenger.css'
 
 export default function Messenger() {
@@ -11,8 +12,20 @@ export default function Messenger() {
     const [conversations, setConversations] = useState([]);
     const [currentChat, setCurrentChat] = useState(null);
     const [messages, setMessages] = useState([]);
-
+    const [newMessage, setNewMessage] = useState("");
     const { user } = useContext(AuthContext)
+    const scrollRef = useRef();
+    const socket = useRef();
+
+    useEffect(() => {
+        socket.current = io("ws://localhost:8900")
+    }, [])
+
+
+    useEffect(() => {
+        socket.current.emit("addUser", user._id)
+        socket.current.on("getUsers", users)
+    }, [user]);
 
 
     useEffect(() => {
@@ -40,7 +53,27 @@ export default function Messenger() {
         getMessages();
     }, [currentChat]);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const message = {
+            sender: user._id,
+            text: newMessage,
+            conversationId: currentChat._id,
+        }
 
+        try {
+            const res = await axios.post("/messages", message);
+            setMessages([...messages, res.data]);
+            setNewMessage("");
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    //scrollbar default down function
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
 
 
     return (
@@ -106,7 +139,9 @@ export default function Messenger() {
                                         <div className="card-body msg_card_body">
                                             {
                                                 messages.map(m => (
-                                                    <Message message={m} own={m.sender===user._id}/>
+                                                    <div ref={scrollRef}>
+                                                        <Message message={m} own={m.sender === user._id} />
+                                                    </div>
                                                 ))
                                             }
 
@@ -118,9 +153,16 @@ export default function Messenger() {
                                                 <div className="input-group-append">
                                                     <span className="input-group-text attach_btn"><i className="fas fa-paperclip"></i></span>
                                                 </div>
-                                                <textarea name="" className="form-control type_msg" placeholder="Type your message..."></textarea>
+                                                <textarea
+                                                    name=""
+                                                    className="form-control type_msg"
+                                                    placeholder="Bir mesaj yazın..."
+                                                    onChange={(e) => setNewMessage(e.target.value)}
+                                                    value={newMessage}
+                                                >
+                                                </textarea>
                                                 <div className="input-group-append">
-                                                    <span className="input-group-text send_btn"><i className="fas fa-location-arrow"></i></span>
+                                                    <span className="input-group-text send_btn"><i className="fas fa-location-arrow" onClick={handleSubmit}></i></span>
                                                 </div>
                                             </div>
                                         </div>
