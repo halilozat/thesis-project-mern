@@ -1,5 +1,5 @@
-const router = require("express").Router();
 const Conversation = require("../models/Conversation");
+
 
 
 //new conversation
@@ -34,5 +34,5 @@ const getConversation = async (req, res) => {
 module.exports = {
     newConversation,
     getConversation,
-    
+
 }
