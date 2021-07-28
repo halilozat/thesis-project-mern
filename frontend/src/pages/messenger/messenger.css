@@ -210,3 +210,13 @@ background-color: rgba(0,0,0,0.2);
 margin-bottom: 15px !important;
 }
 }
+
+.noConversationText{
+    position: absolute;
+    top: 10%;
+    color: wheat;
+    margin-left: 10%;
+    font-size: 30px;
+    text-align: center;
+    cursor: default;
+}

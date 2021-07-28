@@ -1,10 +1,9 @@
 import './modal.css'
 import React, { useContext, useRef, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Input, Modal } from '@material-ui/core';
+import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import { Cancel, PermMedia } from "@material-ui/icons"
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;

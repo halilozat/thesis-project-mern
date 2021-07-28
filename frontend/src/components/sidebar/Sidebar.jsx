@@ -11,8 +11,6 @@ import {
     Event,
     School,
 } from "@material-ui/icons";
-import { Users } from "../../dummyData";
-import CloseFriend from "../closeFriend/CloseFriend";
 import BookModal from '../modals/BookModal'
 import SerieModal from '../modals/SerieModal'
 import MovieModal from '../modals/MovieModal'

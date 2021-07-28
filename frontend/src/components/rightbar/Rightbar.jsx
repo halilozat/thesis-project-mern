@@ -1,10 +1,8 @@
 import "./rightbar.css";
 import Categories from "../categories/Categories";
 import axios from 'axios'
-import Online from "../online/Online";
 import Weekly from "../weekly/Weekly";
 import { Link } from "react-router-dom";
-import { Users } from "../../dummyData";
 import { AuthContext } from '../../context/AuthContext'
 import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBook, TrackChanges, Info } from "@material-ui/icons";
 import { useContext, useEffect, useState } from "react";

@@ -9,6 +9,8 @@ import './messenger.css'
 export default function Messenger() {
 
     const [conversations, setConversations] = useState([]);
+    const [currentChat, setCurrentChat] = useState(null);
+    const [messages, setMessages] = useState([]);
 
     const { user } = useContext(AuthContext)
 
@@ -26,81 +28,105 @@ export default function Messenger() {
     }, [user._id]);
 
 
+    useEffect(() => {
+        const getMessages = async () => {
+            try {
+                const res = await axios.get("/messages/" + currentChat?._id);
+                setMessages(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getMessages();
+    }, [currentChat]);
+
+
 
 
     return (
         <div className="background">
             <Topbar />
-            <div class="container-fluid h-100">
-                <div class="row justify-content-center h-100">
+            <div className="container-fluid h-100">
+                <div className="row justify-content-center h-100">
 
-                    <div class="col-md-4 col-xl-3 chat">
-                        <div class="card mb-sm-3 mb-md-0 contacts_card">
+                    <div className="col-md-4 col-xl-3 chat">
+                        <div className="card mb-sm-3 mb-md-0 contacts_card">
 
                             {/* Searh Bar */}
-                            <div class="card-header">
-                                <div class="input-group">
-                                    <input type="text" placeholder="Search..." name="" class="form-control search" />
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+                            <div className="card-header">
+                                <div className="input-group">
+                                    <input type="text" placeholder="Search..." name="" className="form-control search" />
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text search_btn"><i className="fas fa-search"></i></span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="card-body contacts_body">
-                                <ui class="contacts">
+                            <div className="card-body contacts_body">
+                                <ui className="contacts">
                                     {
                                         conversations.map(c => (
-                                            <Conversation conversation={c} currentUser={user}/>
+                                            <div onClick={() => setCurrentChat(c)}>
+                                                <Conversation conversation={c} currentUser={user} />
+                                            </div>
                                         ))
                                     }
                                 </ui>
                             </div>
 
-                            <div class="card-footer"></div>
+                            <div className="card-footer"></div>
                         </div></div>
 
-                    <div class="col-md-8 col-xl-6 chat">
-                        <div class="card">
-                            <div class="card-header msg_head">
-                                <div class="d-flex bd-highlight">
-                                    <div class="img_cont">
-                                        <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img" />
-                                        {/* <span class="online_icon"></span> */}
-                                    </div>
-                                    <div class="user_info">
-                                        <span>Chat with Melih</span>
-                                    </div>
-                                    <div class="video_cam">
-                                        <span><i class="fas fa-video"></i></span>
-                                        <span><i class="fas fa-phone"></i></span>
-                                    </div>
-                                </div>
-                                <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-                                <div class="action_menu">
-                                    <ul>
-                                        <li><i class="fas fa-user-circle"></i> View profile</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body msg_card_body">
+                    <div className="col-md-8 col-xl-6 chat">
+                        <div className="card">
+                            {
+                                currentChat ?
+                                    <>
+                                        <div className="card-header msg_head">
+                                            <div className="d-flex bd-highlight">
+                                                <div className="img_cont">
+                                                    <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" className="rounded-circle user_img" />
+                                                    {/* <span className="online_icon"></span> */}
+                                                </div>
+                                                <div className="user_info">
+                                                    <span>Chat with Melih</span>
+                                                </div>
+                                                <div className="video_cam">
+                                                    <span><i className="fas fa-video"></i></span>
+                                                    <span><i className="fas fa-phone"></i></span>
+                                                </div>
+                                            </div>
+                                            <span id="action_menu_btn"><i className="fas fa-ellipsis-v"></i></span>
+                                            <div className="action_menu">
+                                                <ul>
+                                                    <li><i className="fas fa-user-circle"></i> View profile</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div className="card-body msg_card_body">
+                                            {
+                                                messages.map(m => (
+                                                    <Message message={m} own={m.sender===user._id}/>
+                                                ))
+                                            }
 
 
-                                <Message own={true} />
 
-
-                            </div>
-                            <div class="card-footer">
-                                <div class="input-group">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-                                    </div>
-                                    <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+                                        </div>
+                                        <div className="card-footer">
+                                            <div className="input-group">
+                                                <div className="input-group-append">
+                                                    <span className="input-group-text attach_btn"><i className="fas fa-paperclip"></i></span>
+                                                </div>
+                                                <textarea name="" className="form-control type_msg" placeholder="Type your message..."></textarea>
+                                                <div className="input-group-append">
+                                                    <span className="input-group-text send_btn"><i className="fas fa-location-arrow"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                    : <span className="noConversationText">Open a conversation to start a chat</span>
+                            }
                         </div>
                     </div>
                 </div>

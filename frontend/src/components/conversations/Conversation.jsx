@@ -21,15 +21,17 @@ export default function Conversation({ conversation, currentUser }) {
         getUser();
     }, [currentUser, conversation]);
 
+    
+
     return (
         <>
-            {/* <li class="active">
-                <div class="d-flex bd-highlight">
-                    <div class="img_cont">
-                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img" />
-                        <span class="online_icon"></span>
+            {/* <li className="active">
+                <div className="d-flex bd-highlight">
+                    <div className="img_cont">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" className="rounded-circle user_img" />
+                        <span className="online_icon"></span>
                     </div>
-                    <div class="user_info">
+                    <div className="user_info">
                         <span>Halil</span>
                         <p>Halil is online</p>
                     </div>
@@ -37,9 +39,9 @@ export default function Conversation({ conversation, currentUser }) {
             </li> */}
 
             <li>
-                <div class="d-flex bd-highlight">
-                    <div class="img_cont">
-                        {/* <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img" /> */}
+                <div className="d-flex bd-highlight">
+                    <div className="img_cont">
+                        {/* <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" className="rounded-circle user_img" /> */}
                         <img
                             src=
                             {
@@ -47,11 +49,13 @@ export default function Conversation({ conversation, currentUser }) {
                                     ? publicFolder + user.profilePicture
                                     : publicFolder + "person/noAvatar.png"
                             }
-                            class="rounded-circle user_img" />
-                        <span class="online_icon offline"></span>
+                            className="rounded-circle user_img" />
+                        <span className="online_icon offline"></span>
                     </div>
-                    <div class="user_info">
-                        <span>{user.username}</span>
+                    <div className="user_info">
+                        <span>
+                        {user?.username}
+                        </span>
                         <p>Melih left 50 mins ago</p>
                     </div>
                 </div>
