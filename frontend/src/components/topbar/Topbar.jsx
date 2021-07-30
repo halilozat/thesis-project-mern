@@ -54,7 +54,7 @@ export default function Topbar() {
           </div>
         </div>
 
-        <div class="dropdown">
+        <div className="dropdown">
           <img src={
             user.profilePicture
               ? publicFolder + user.profilePicture
@@ -63,7 +63,7 @@ export default function Topbar() {
             alt=""
             className="topbarImg"
           />
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <Link style={{ textDecoration: "none", textAlign:"left"}} to={`/profile/${user.username}`}>
               <a >Profile Git!</a>
             </Link>

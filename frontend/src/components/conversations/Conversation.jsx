@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function Conversation({ conversation, currentUser }) {
     const [user, setUser] = useState(null)
+    const [onlineFriends, setOnlineFriends] = useState([]);
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 
@@ -21,27 +22,13 @@ export default function Conversation({ conversation, currentUser }) {
         getUser();
     }, [currentUser, conversation]);
 
-    
+
 
     return (
         <>
-            {/* <li className="active">
-                <div className="d-flex bd-highlight">
-                    <div className="img_cont">
-                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" className="rounded-circle user_img" />
-                        <span className="online_icon"></span>
-                    </div>
-                    <div className="user_info">
-                        <span>Halil</span>
-                        <p>Halil is online</p>
-                    </div>
-                </div>
-            </li> */}
-
             <li>
-                <div className="d-flex bd-highlight">
+                <div className="d-flex bd-highlight" style={{ cursor: "pointer" }}>
                     <div className="img_cont">
-                        {/* <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" className="rounded-circle user_img" /> */}
                         <img
                             src=
                             {
@@ -50,13 +37,13 @@ export default function Conversation({ conversation, currentUser }) {
                                     : publicFolder + "person/noAvatar.png"
                             }
                             className="rounded-circle user_img" />
-                        <span className="online_icon offline"></span>
+                        
                     </div>
                     <div className="user_info">
                         <span>
-                        {user?.username}
+                            {user?.username}
                         </span>
-                        <p>Melih left 50 mins ago</p>
+                        <p>Sohbete devam etmek için tıklayın.</p>
                     </div>
                 </div>
             </li>

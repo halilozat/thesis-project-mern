@@ -1,7 +1,7 @@
 .background{
     background: #7F7FD5;
-    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #2d2de6);
+    background: linear-gradient(to right, #0cebdc, #77a1ee, #3232d6);
 }
 .chat{
     margin-top: 3%;
