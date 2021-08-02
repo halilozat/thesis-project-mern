@@ -34,7 +34,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
     return (
         <>
             {onlineFriends.map((o) => (
-                <li>
+                <li key={o.user_id}>
 
                     <div className="d-flex bd-highlight" onClick={() => handleClick(o)}>
                         <div className="img_cont">
@@ -44,7 +44,8 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
                                         ? publicFolder + o.profilePicture
                                         : publicFolder + "person/noAvatar.png"
                                 }
-                                className="rounded-circle user_img" />
+                                className="rounded-circle user_img"
+                            />
                             <span className="online_icon"></span>
                         </div>
                         <div className="user_info">

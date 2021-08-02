@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleModal() {
 
     const { user } = useContext(AuthContext);
-    const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+    //const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
     const name = useRef();
     const writer = useRef();
     const desc = useRef();
@@ -71,8 +71,8 @@ export default function SimpleModal() {
         } catch (err) { }
     };
 
-    const classes = useStyles();
-    const [modalStyle] = React.useState(getModalStyle);
+    //const classes = useStyles();
+    //const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
 
 

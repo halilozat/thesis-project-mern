@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export default function Conversation({ conversation, currentUser }) {
     const [user, setUser] = useState(null)
-    const [onlineFriends, setOnlineFriends] = useState([]);
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 

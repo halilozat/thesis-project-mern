@@ -64,10 +64,16 @@ export default function Topbar() {
             className="topbarImg"
           />
           <div className="dropdown-content">
-            <Link style={{ textDecoration: "none", textAlign:"left"}} to={`/profile/${user.username}`}>
-              <a >Profile Git!</a>
+            <Link style={{ textDecoration: "none", textAlign: "left" }} to={`/profile/${user.username}`}>
+              <div >Profile Git!</div>
             </Link>
-            <a className="dropdown-content" onClick={handleClick} style={{ textDecoration: "none", cursor:"pointer", textAlign:"center"}}> Sign out</a>
+            <a
+              className="dropdown-content"
+              onClick={handleClick}
+              style={{ textDecoration: "none", cursor: "pointer", textAlign: "center" }}
+            >
+              Sign out
+            </a>
           </div>
         </div>
 

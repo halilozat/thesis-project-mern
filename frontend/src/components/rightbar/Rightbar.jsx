@@ -54,10 +54,10 @@ export default function Rightbar({ user }) {
 
                 <Categories />
 
-                {/* <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" /> */}
+                <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
 
 
-                
+
             </>
         );
     };
@@ -71,6 +71,7 @@ export default function Rightbar({ user }) {
                         {followed ? <Remove /> : <Add />}
                     </button>
                 )}
+
                 <h4 className="rightbarTitle"><Info />Kullanıcı Bilgileri<Info /></h4>
                 <div className="rightbarInfo">
                     <div className="rightbarInfoItem">
@@ -117,6 +118,7 @@ export default function Rightbar({ user }) {
                 </div>
 
                 <h4 className="rightbarTitle">User friends</h4>
+
                 <div className="rightbarFollowings">
                     {friends.map((friend) => (
                         <Link
@@ -138,7 +140,12 @@ export default function Rightbar({ user }) {
                         </Link>
                     ))}
                 </div>
-                
+
+                {user.username === currentUser.username && (
+                    <button className="rightbarEditButton" >
+                        Profili Düzenle
+                    </button>
+                )}
             </>
         );
     };

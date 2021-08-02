@@ -23,83 +23,83 @@ export default function Messenger() {
     useEffect(() => {
         socket.current = io("ws://localhost:8900");
         socket.current.on("getMessage", (data) => {
-          setArrivalMessage({
-            sender: data.senderId,
-            text: data.text,
-            createdAt: Date.now(),
-          });
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now(),
+            });
         });
-      }, []);
-    
-      useEffect(() => {
+    }, []);
+
+    useEffect(() => {
         arrivalMessage &&
-          currentChat?.members.includes(arrivalMessage.sender) &&
-          setMessages((prev) => [...prev, arrivalMessage]);
-      }, [arrivalMessage, currentChat]);
-    
-      useEffect(() => {
+            currentChat?.members.includes(arrivalMessage.sender) &&
+            setMessages((prev) => [...prev, arrivalMessage]);
+    }, [arrivalMessage, currentChat]);
+
+    useEffect(() => {
         socket.current.emit("addUser", user._id);
         socket.current.on("getUsers", (users) => {
-          setOnlineUsers(
-            user.followings.filter((f) => users.some((u) => u.userId === f))
-          );
+            setOnlineUsers(
+                user.followings.filter((f) => users.some((u) => u.userId === f))
+            );
         });
-      }, [user]);
-    
-      useEffect(() => {
+    }, [user]);
+
+    useEffect(() => {
         const getConversations = async () => {
-          try {
-            const res = await axios.get("/conversations/" + user._id);
-            setConversations(res.data);
-          } catch (err) {
-            console.log(err);
-          }
+            try {
+                const res = await axios.get("/conversations/" + user._id);
+                setConversations(res.data);
+            } catch (err) {
+                console.log(err);
+            }
         };
         getConversations();
-      }, [user._id]);
-    
-      useEffect(() => {
+    }, [user._id]);
+
+    useEffect(() => {
         const getMessages = async () => {
-          try {
-            const res = await axios.get("/messages/" + currentChat?._id);
-            setMessages(res.data);
-          } catch (err) {
-            console.log(err);
-          }
+            try {
+                const res = await axios.get("/messages/" + currentChat?._id);
+                setMessages(res.data);
+            } catch (err) {
+                console.log(err);
+            }
         };
         getMessages();
-      }, [currentChat]);
-    
-      const handleSubmit = async (e) => {
+    }, [currentChat]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const message = {
-          sender: user._id,
-          text: newMessage,
-          conversationId: currentChat._id,
+            sender: user._id,
+            text: newMessage,
+            conversationId: currentChat._id,
         };
-    
+
         const receiverId = currentChat.members.find(
-          (member) => member !== user._id
+            (member) => member !== user._id
         );
-    
+
         socket.current.emit("sendMessage", {
-          senderId: user._id,
-          receiverId,
-          text: newMessage,
+            senderId: user._id,
+            receiverId,
+            text: newMessage,
         });
-    
+
         try {
-          const res = await axios.post("/messages", message);
-          setMessages([...messages, res.data]);
-          setNewMessage("");
+            const res = await axios.post("/messages", message);
+            setMessages([...messages, res.data]);
+            setNewMessage("");
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
-    
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, [messages]);
+    }, [messages]);
 
 
     return (
@@ -127,7 +127,10 @@ export default function Messenger() {
                                 <ul className="contacts">
                                     {
                                         conversations.map(c => (
-                                            <div onClick={() => setCurrentChat(c)}>
+                                            <div
+                                                key={c._id}
+                                                onClick={() => setCurrentChat(c)}
+                                            >
                                                 <Conversation
                                                     conversation={c}
                                                     currentUser={user}
@@ -182,8 +185,13 @@ export default function Messenger() {
                                         <div className="card-body msg_card_body">
                                             {
                                                 messages.map(m => (
-                                                    <div ref={scrollRef}>
-                                                        <Message message={m} own={m.sender === user._id} />
+                                                    <div
+                                                        key={m._id}
+                                                        ref={scrollRef}>
+                                                        <Message
+                                                            message={m}
+                                                            own={m.sender === user._id}
+                                                        />
                                                     </div>
                                                 ))
                                             }

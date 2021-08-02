@@ -40,8 +40,8 @@ export default function Sidebar() {
                         <span className="sidebarListItemText">Feed</span>
                     </li>
                     <li className="sidebarListItem">
-                        <Chat fontSize="large" className="sidebarIcon" />
-                        <Link to="/messenger" style={{ textDecoration: "none", color:"white" }}>
+                        <Link to="/messenger" style={{ textDecoration: "none", color: "white" }}>
+                            <Chat fontSize="large" className="sidebarIcon" />
                             <span className="sidebarListItemText">Chats</span>
                         </Link>
                     </li>
@@ -78,6 +78,7 @@ export default function Sidebar() {
                 <BookModal />
                 <SerieModal />
                 <MovieModal />
+
                 <hr className="sidebarHr" />
 
             </div>

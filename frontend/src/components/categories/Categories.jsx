@@ -6,19 +6,19 @@ export default function Categories() {
                     <h4 className="rightbarTitle">Kategoriler</h4>
                     <div className="birthdayContainer">
                         <span className="birthdayText">
-                            <button className="secilen"></button>
+                            <button className="secilen">Kitaplar</button>
                         </span>
                     </div>
                     <br className="sidebarHr" />
                     <div className="birthdayContainer">
                         <span className="birthdayText">
-                            <button className="secilen"></button>
+                            <button className="secilen">Filmler</button>
                         </span>
                     </div>
                     <br className="sidebarHr" />
                     <div className="birthdayContainer">
                         <span className="birthdayText">
-                            <button className="secilen"></button>
+                            <button className="secilen">Diziler</button>
                         </span>
                     </div>
                 </div>
