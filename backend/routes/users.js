@@ -22,4 +22,7 @@ router.put("/:id/follow", userController.followUser);
 //unfollow a user
 router.put("/:id/unfollow", userController.unfollowUser);
 
+//get user stats
+router.get("/stats", userController.getUserStats);
+
 module.exports = router;
