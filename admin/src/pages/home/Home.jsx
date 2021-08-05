@@ -11,18 +11,18 @@ export default function Home() {
 
   const MONTHS = useMemo(
     () => [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Agu",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "Ocak",
+      "Subat",
+      "Mart",
+      "Nisan",
+      "Mayıs",
+      "Haziran",
+      "Temmuz",
+      "Agustos",
+      "Eylul",
+      "Ekim",
+      "Kasim",
+      "Aralik",
     ],
     []
   );
@@ -35,7 +35,7 @@ export default function Home() {
         const res = await axios.get("/users/stats", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTZmYzQ2NDk0Mjc3MTYwNDg4MmMxNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNTgzMjMxMSwiZXhwIjoxNjI2MjY0MzExfQ.ATXV-1TTWIGyVBttTQSf0erRWjsgZ8jHQv1ZsUixbng",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGJlZDdkYjE5NTJlMDUzODZkMzU2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODE3Njg2NCwiZXhwIjoxNjI4NjA4ODY0fQ.2Fk6SQJv9dJNo2ZBYBoqJ8HsHK2TimHrz-YTNtp4UUM",
           },
         });
         const statsList = res.data.sort(function (a, b) {
@@ -44,7 +44,7 @@ export default function Home() {
         statsList.map((item) =>
           setUserStats((prev) => [
             ...prev,
-            { name: MONTHS[item._id - 1], "New User": item.total },
+            { name: MONTHS[item._id - 1], "Yeni Üye": item.total },
           ])
         );
       } catch (err) {
@@ -59,7 +59,7 @@ export default function Home() {
     <div className="home">
 
       <FeaturedInfo />
-      <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
+      <Chart data={userStats} title="Üye İstatistikleri" grid dataKey="Yeni Üye" />
       <div className="homeWidgets">
         <WidgetSm />
         <WidgetLg />
