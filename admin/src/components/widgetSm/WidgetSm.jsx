@@ -5,14 +5,15 @@ import axios from "axios";
 
 export default function WidgetSm() {
   const [newUsers, setNewUsers] = useState([]);
-  
+  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
   useEffect(() => {
     const getNewUsers = async () => {
       try {
         const res = await axios.get("/users/getall?new=true", {
           headers: {
             token:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGJlZDdkYjE5NTJlMDUzODZkMzU2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODE3Njg2NCwiZXhwIjoxNjI4NjA4ODY0fQ.2Fk6SQJv9dJNo2ZBYBoqJ8HsHK2TimHrz-YTNtp4UUM",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGJlZDdkYjE5NTJlMDUzODZkMzU2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODE3Njg2NCwiZXhwIjoxNjI4NjA4ODY0fQ.2Fk6SQJv9dJNo2ZBYBoqJ8HsHK2TimHrz-YTNtp4UUM",
           },
         });
         setNewUsers(res.data);
@@ -23,7 +24,7 @@ export default function WidgetSm() {
     getNewUsers();
   }, []);
 
-  
+
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">En Yeni Üyeler</span>
