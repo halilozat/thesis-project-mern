@@ -2,16 +2,20 @@ const User = require("../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const userController = require("../controllers/users")
+const verify = require("../verifyToken");
 
 
 //update user
-router.put("/:id", userController.updateUser);
+router.put("/:id", verify, userController.updateUser);
 
 //delete user
-router.delete("/:id", userController.deleteUser);
+router.delete("/:id", verify, userController.deleteUser);
 
 //get a user
 router.get("/", userController.getUser);
+
+//get all user
+router.get("/getall", verify, userController.getall);
 
 //get friends
 router.get("/friends/:userId", userController.getFriends);

@@ -1,42 +1,45 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-
+const CryptoJS = require("crypto-js");
 
 //update user
 const updateUser = async (req, res) => {
-    if (req.body.userId === req.params.id || req.body.isAdmin) {
+    if (req.user.id === req.params.id || req.user.isAdmin) {
         if (req.body.password) {
-            try {
-                const salt = await bcrypt.genSalt(10);
-                req.body.password = await bcrypt.hash(req.body.password, salt);
-            } catch (err) {
-                return res.status(500).json(err);
-            }
+            req.body.password = CryptoJS.AES.encrypt(
+                req.body.password,
+                process.env.SECRET_KEY
+            ).toString();
         }
+
         try {
-            const user = await User.findByIdAndUpdate(req.params.id, {
-                $set: req.body,
-            });
-            res.status(200).json("Account has been updated");
+            const updatedUser = await User.findByIdAndUpdate(
+                req.params.id,
+                {
+                    $set: req.body,
+                },
+                { new: true }
+            );
+            res.status(200).json(updatedUser);
         } catch (err) {
-            return res.status(500).json(err);
+            res.status(500).json(err);
         }
     } else {
-        return res.status(403).json("You can update only your account!");
+        res.status(403).json("You can update only your account!");
     }
 }
 
 //delete user
 const deleteUser = async (req, res) => {
-    if (req.body.userId === req.params.id || req.body.isAdmin) {
+    if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
             await User.findByIdAndDelete(req.params.id);
-            res.status(200).json("Account has been deleted");
+            res.status(200).json("User has been deleted...");
         } catch (err) {
-            return res.status(500).json(err);
+            res.status(500).json(err);
         }
     } else {
-        return res.status(403).json("You can delete only your account!");
+        res.status(403).json("You can delete only your account!");
     }
 }
 
@@ -52,6 +55,23 @@ const getUser = async (req, res) => {
         res.status(200).json(other);
     } catch (err) {
         res.status(500).json(err);
+    }
+}
+
+//getall
+const getall = async (req, res) => {
+    const query = req.query.new;
+    if (req.user.isAdmin) {
+        try {
+            const users = query
+                ? await User.find().sort({ _id: -1 }).limit(5)
+                : await User.find();
+            res.status(200).json(users);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(403).json("You are not allowed to see all users!");
     }
 }
 
@@ -150,5 +170,6 @@ module.exports = {
     followUser,
     unfollowUser,
     getFriends,
-    getUserStats
+    getUserStats,
+    getall
 }
