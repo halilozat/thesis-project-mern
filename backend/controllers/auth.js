@@ -1,70 +1,54 @@
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { registerValidation, loginValidation } = require("../validation/joiValidation");
+const CryptoJS = require("crypto-js");
+
+
+//const { registerValidation, loginValidation } = require("../validation/joiValidation");
 
 
 //register
 const register = async (req, res) => {
-  //Lets Validate the data before making a user
-  const { error } = registerValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  //Checking to see if the email already exists in Database
-  const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("This Email already exists");
-
-  //Hash the password
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-  const user = new User({
+  const newUser = new User({
     username: req.body.username,
     email: req.body.email,
-    password: hashedPassword
+    password: CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.SECRET_KEY
+    ).toString(),
   });
-
   try {
-    const savedUser = await user.save();
-    res.send({ user: user._id });
+    const user = await newUser.save();
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  catch (err) {
-    res.status(400).send(err);
-  }
-}
+};
 
-//login
-// const login = async (req, res) => {
-//   //Lets Validate the data before making a user
-//   const { error } = loginValidation(req.body);
-//   if (error) return res.status(400).send(error.details[0].message);
-//   //Checking to see if the email already exists in Database
-//   const user = await User.findOne({ email: req.body.email });
-//   if (!user) return res.status(400).send("Email is not found");
-//   //Is the Password correct?
-//   const validPass = await bcrypt.compare(req.body.password, user.password);
-//   if (!validPass) return res.status(400).send("Invalid password");
-
-//   //Create and assign a token
-//   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-//   res.header("auth-token", token).send(token);
-
-//   res.send("Logged in");
-// }
 
 const login = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    !user && res.status(404).json("user not found");
+    !user && res.status(401).json("Wrong password or username!");
 
-    const validPassword = await bcrypt.compare(req.body.password, user.password)
-    !validPassword && res.status(400).json("wrong password")
+    const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
+    const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
-    res.status(200).json(user)
+    originalPassword !== req.body.password &&
+      res.status(401).json("Wrong password or username!");
+
+    const accessToken = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.SECRET_KEY,
+      { expiresIn: "5d" }
+    );
+
+    const { password, ...info } = user._doc;
+
+    res.status(200).json({ ...info, accessToken });
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-};
+}
 
 module.exports = {
   register,
