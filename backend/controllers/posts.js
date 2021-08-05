@@ -90,13 +90,27 @@ const getTimelinePost = async (req, res) => {
 //get user's all posts
 const getUserPost = async (req, res) => {
     try {
-        
+
         const user = await User.findOne({ username: req.params.username });
         const posts = await Post.find({ userId: user._id });
         res.status(200).json(posts);
 
     } catch (err) {
         res.status(500).json(err);
+    }
+}
+
+//get all
+const getAll = async (req, res) => {
+    if (req.user.isAdmin) {
+        try {
+            const posts = await Post.find();
+            res.status(200).json(posts.reverse());
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(403).json("You are not allowed!");
     }
 }
 
@@ -107,5 +121,6 @@ module.exports = {
     likeOrDislikePost,
     getPost,
     getTimelinePost,
-    getUserPost
+    getUserPost,
+    getAll
 }

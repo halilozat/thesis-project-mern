@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const postController = require("../controllers/posts")
+const verify = require("../verifyToken");
 
 
 //create a post
@@ -22,6 +23,11 @@ router.get("/timeline/:userId", postController.getTimelinePost);
 
 //get user's posts
 router.get("/profile/:username", postController.getUserPost)
+
+//get all
+router.get("/allposts/getall", verify, postController.getAll);
+  
+  module.exports = router;
 
 
 module.exports = router;
