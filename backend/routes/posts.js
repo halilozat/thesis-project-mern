@@ -10,7 +10,7 @@ router.post("/", postController.createPost)
 router.put("/:id", postController.updatePost);
 
 //delete a post
-router.delete("/:id", postController.deletePost);
+router.delete("/:id", verify, postController.deletePost);
 
 //like / dislike a post
 router.put("/:id/like", postController.likeOrDislikePost)

@@ -5,11 +5,12 @@ import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { PostContext } from "../../context/postContext/PostContext";
-import { getPosts } from "../../context/postContext/apiCalls";
+import { deletePost, getPosts } from "../../context/postContext/apiCalls";
 
 export default function ProductList() {
   const [data, setData] = useState(productRows);
   const { posts, dispatch } = useContext(PostContext)
+  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
   useEffect(() => {
     getPosts(dispatch);
@@ -17,18 +18,37 @@ export default function ProductList() {
 
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deletePost(id, dispatch)
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },    {
-      field: "post",
-      headerName: "Post",
-      width: 200,
+    { field: "_id", headerName: "ID", width: 150 },
+    { field: "userId", headerName: "USER_ID", width: 150 },
+    {
+      field: "postImg",
+      headerName: "PostImg",
+      width: 75,
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+            <img className="productListImg"
+              src={
+                publicFolder + params.row.img !== "http://localhost:5000/images/undefined"
+                  ? publicFolder + params.row.img
+                  : "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"}
+              alt=""
+            />
+          </div>
+        );
+      },
+    },
+    {
+      field: "post",
+      headerName: "Post",
+      width: 500,
+      renderCell: (params) => {
+        return (
+          <div className="productListItem">
             {params.row.desc}
           </div>
         );

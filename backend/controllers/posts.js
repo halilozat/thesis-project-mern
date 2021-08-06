@@ -28,18 +28,18 @@ const updatePost = async (req, res) => {
     }
 }
 
+//if (post.userId === req.body.userId || req.user.isAdmin) {
 //delete a post
 const deletePost = async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-        if (post.userId === req.body.userId) {
-            await post.deleteOne();
-            res.status(200).json("the post has been deleted");
-        } else {
-            res.status(403).json("you can delete only your post");
+    if (req.user.isAdmin || post.userId === req.body.userId) {
+        try {
+            await Post.findByIdAndDelete(req.params.id);
+            res.status(200).json("The post has been deleted...");
+        } catch (err) {
+            res.status(500).json(err);
         }
-    } catch (err) {
-        res.status(500).json(err);
+    } else {
+        res.status(403).json("You are not allowed!");
     }
 }
 

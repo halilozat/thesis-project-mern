@@ -33,11 +33,12 @@ export default function WidgetSm() {
           <li className="widgetSmListItem">
             <img
               src={
-                user.profilePic ||
-                "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
+                user.profilePicture
+                  ? publicFolder + user.profilePicture
+                  : "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
               }
-              alt=""
-              className="widgetSmImg"
+            alt=""
+            className="widgetSmImg"
             />
             <div className="widgetSmUser">
               <span className="widgetSmUsername">{user.username}</span>

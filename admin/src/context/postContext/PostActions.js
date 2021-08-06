@@ -1,3 +1,4 @@
+//GET
 export const getPostsStart = () => ({
     type: "GET_POSTS_START",
   });
@@ -9,4 +10,18 @@ export const getPostsStart = () => ({
 
   export const getPostsFailure = () => ({
     type: "GET_POSTS_FAILURE ",
+  });
+
+//DELETE
+  export const deletePostStart = () => ({
+    type: "DELETE_POST_START",
+  });
+
+  export const deletePostSuccess = (id) => ({
+    type: "DELETE_POST_SUCCESS",
+    payload: id,
+  });
+
+  export const deletePostFailure = () => ({
+    type: "DELETE_POST_FAILURE ",
   });
