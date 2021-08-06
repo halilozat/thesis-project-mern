@@ -35,7 +35,8 @@ export default function ProductList() {
               src={
                 publicFolder + params.row.img !== "http://localhost:5000/images/undefined"
                   ? publicFolder + params.row.img
-                  : "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"}
+                  : "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
+              }
               alt=""
             />
           </div>
@@ -61,8 +62,8 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/post/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+            <Link to={{ pathname: "/product/" + params.row._id, post: params.row }}>
+              <button className="productListEdit">Güncelle</button>
             </Link>
             <DeleteOutline
               className="productListDelete"

@@ -5,7 +5,10 @@ import {
   deletePostSuccess,
   getPostsFailure,
   getPostsStart,
-  getPostsSuccess
+  getPostsSuccess,
+  updatePostFailure,
+  updatePostStart,
+  updatePostSuccess
 } from './PostActions'
 
 export const getPosts = async (dispatch) => {
@@ -33,5 +36,19 @@ export const deletePost = async (id, dispatch) => {
     dispatch(deletePostSuccess(id));
   } catch (err) {
     dispatch(deletePostFailure());
+  }
+};
+
+export const updatePost = async (id, dispatch) => {
+  dispatch(updatePostStart());
+  try {
+    await axios.put("/posts/" + id, {
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
+    dispatch(updatePostSuccess(id));
+  } catch (err) {
+    dispatch(updatePostFailure());
   }
 };

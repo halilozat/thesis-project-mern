@@ -17,7 +17,7 @@ const createPost = async (req, res) => {
 const updatePost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
-        if (post.userId === req.body.userId) {
+        if (req.user.isAdmin || post.userId === req.body.userId) {
             await post.updateOne({ $set: req.body });
             res.status(200).json("the post has been updated");
         } else {
@@ -28,7 +28,6 @@ const updatePost = async (req, res) => {
     }
 }
 
-//if (post.userId === req.body.userId || req.user.isAdmin) {
 //delete a post
 const deletePost = async (req, res) => {
     if (req.user.isAdmin || post.userId === req.body.userId) {

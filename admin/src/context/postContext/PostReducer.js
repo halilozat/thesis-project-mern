@@ -19,8 +19,26 @@ const PostReducer = (state, action) => {
                 error: true,
             };
 
-            
-            case "DELETE_POST_START":
+        case "UPDATE_POST_START":
+            return {
+                ...state,
+                isFetching: true,
+                error: false,
+            };
+        case "UPDATE_POST_SUCCESS":
+            return {
+                posts: state.posts.filter((post) => post._id !== action.payload),
+                isFetching: false,
+                error: false,
+            };
+        case "UPDATE_POST_FAILURE":
+            return {
+                ...state,
+                isFetching: false,
+                error: true,
+            };
+
+        case "DELETE_POST_START":
             return {
                 ...state,
                 isFetching: true,
