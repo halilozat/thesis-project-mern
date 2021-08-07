@@ -3,35 +3,22 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { deleteUser, getUsers } from "../../context/userContext/apiCalls";
+import { UserContext } from "../../context/userContext/UserContext";
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
-  const [users, setUsers] = useState([])
+  const { users, dispatch } = useContext(UserContext)
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
   useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const res = await axios.get("/users/getall", {
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGJlZDdkYjE5NTJlMDUzODZkMzU2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODE3Njg2NCwiZXhwIjoxNjI4NjA4ODY0fQ.2Fk6SQJv9dJNo2ZBYBoqJ8HsHK2TimHrz-YTNtp4UUM",
-          },
-        });
-        setUsers(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUsers();
-  }, []);
-
+    getUsers(dispatch)
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteUser(id, dispatch)
   };
+  
 
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
@@ -44,8 +31,8 @@ export default function UserList() {
           <div className="userListUser">
             <img className="userListImg"
               src={
-                publicFolder + params.row.img !== "http://localhost:5000/images/undefined"
-                  ? publicFolder + params.row.img
+                publicFolder + params.row.profilePicture !== "http://localhost:5000/images/"
+                  ? publicFolder + params.row.profilePicture
                   : "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
               }
               alt=""
@@ -59,7 +46,7 @@ export default function UserList() {
     {
       field: "isAdmin",
       headerName: "Admin?",
-      width: 200,
+      width: 100,
     },
 
     {
@@ -67,9 +54,9 @@ export default function UserList() {
       headerName: "Action",
       width: 200,
       renderCell: (params) => {
-        return (
+        return (  
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/user/" + params.row._id}>
               <button className="userListEdit">Düzenle</button>
             </Link>
             <DeleteOutline
@@ -88,7 +75,7 @@ export default function UserList() {
         rows={users}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={10}
         checkboxSelection
         getRowId={(r) => r._id}
       />
