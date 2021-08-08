@@ -1,41 +1,10 @@
 import './modal.css'
 import React, { useContext, useRef, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
-
-    return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-    };
-}
-
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-        oot: {
-            '& > *': {
-                margin: theme.spacing(1),
-            },
-        },
-    },
-}));
 
 
 export default function SimpleModal() {
@@ -45,6 +14,7 @@ export default function SimpleModal() {
     const name = useRef();
     const writer = useRef();
     const desc = useRef();
+    const point = useRef();
     const [file, setFile] = useState(null);
 
     const submitHandler = async (e) => {
@@ -54,6 +24,7 @@ export default function SimpleModal() {
             name: name.current.value,
             writer: writer.current.value,
             desc: desc.current.value,
+            point: point.current.value
         };
         if (file) {
             const data = new FormData();
@@ -71,11 +42,7 @@ export default function SimpleModal() {
         } catch (err) { }
     };
 
-    //const classes = useStyles();
-    //const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-
-
 
     const handleOpen = () => {
         setOpen(true);
@@ -129,16 +96,26 @@ export default function SimpleModal() {
                                     <input className="app-form-control" placeholder="CONTACT NO" />
                                 </div> */}
                                 <div className="app-form-group message">
-                                    <input
+                                    <textarea
                                         className="app-form-control"
-                                        placeholder="KITAP INCELEMESI"
+                                        placeholder="Kitap İncelemesi"
                                         ref={desc}
+                                    />
+                                </div>
+                                <div className="app-form-group message">
+                                    <input
+                                        type="number"
+                                        min="1" 
+                                        max="100"
+                                        className="app-form-control"
+                                        placeholder="Puan"
+                                        ref={point}
                                     />
                                 </div>
                                 <div className="app-form-group buttons">
                                     <form onSubmit={submitHandler}>
-                                        <button className="app-form-button" onClick={handleClose}>KAPAT</button>
                                         <button className="app-form-button" type="submit">EKLE</button>
+                                        <button className="app-form-button" onClick={handleClose}>KAPAT</button>
                                     </form>
                                 </div>
                             </div>

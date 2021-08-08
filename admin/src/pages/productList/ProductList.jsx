@@ -8,7 +8,6 @@ import { PostContext } from "../../context/postContext/PostContext";
 import { deletePost, getPosts } from "../../context/postContext/apiCalls";
 
 export default function ProductList() {
-  const [data, setData] = useState(productRows);
   const { posts, dispatch } = useContext(PostContext)
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 

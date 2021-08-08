@@ -18,14 +18,14 @@ export default function UserList() {
   const handleDelete = (id) => {
     deleteUser(id, dispatch)
   };
-  
+
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 200 },
+    { field: "_id", headerName: "ID", width: 250 },
     {
       field: "username",
       headerName: "User",
-      width: 200,
+      width: 250,
       renderCell: (params) => {
         return (
           <div className="userListUser">
@@ -42,21 +42,37 @@ export default function UserList() {
         );
       },
     },
-    { field: "email", headerName: "Email", width: 250 },
+    { field: "email", headerName: "Email", width: 300 },
     {
       field: "isAdmin",
       headerName: "Admin?",
-      width: 100,
+      width: 200,
+      renderCell: (params) => {
+        return (
+
+          <div className="userListUser">
+            {
+              params.row.isAdmin
+                ?
+                <div style={{ color: "blue" }}>
+                  <b>ADMIN</b>
+                </div>
+                :
+                <small>kullanıcı</small>
+            }
+          </div>
+        )
+      }
     },
 
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      width: 300,
       renderCell: (params) => {
-        return (  
+        return (
           <>
-            <Link to={"/user/" + params.row._id}>
+            <Link to={{ pathname: "/user/" + params.row._id, user: params.row }}>
               <button className="userListEdit">Düzenle</button>
             </Link>
             <DeleteOutline
