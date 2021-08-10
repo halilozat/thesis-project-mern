@@ -13,6 +13,7 @@ import {
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import book from './components/books/Book';
+import Note from './pages/note/Note';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           </Route>
           <Route path="/profile/:username" component={Profile} />
           <Route path="/book" component={book} />
+          <Route path="/myNote" component={Note} />
         </Switch>
 
       </Router>

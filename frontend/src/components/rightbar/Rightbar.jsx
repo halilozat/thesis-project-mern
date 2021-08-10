@@ -146,6 +146,13 @@ export default function Rightbar({ user }) {
                         Profili Düzenle
                     </button>
                 )}
+                {user.username === currentUser.username && (
+                    <Link to="/myNote">
+                        <button className="rightbarEditButton" >
+                            Notlarım
+                        </button>
+                    </Link>
+                )}
             </>
         );
     };
