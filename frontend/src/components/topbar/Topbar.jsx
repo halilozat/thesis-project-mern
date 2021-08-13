@@ -28,6 +28,7 @@ export default function Topbar() {
           <span className="logo" >Thesis</span>
         </Link>
       </div>
+
       <div className="topbarCenter">
         <div className="searchbar">
           <Search className="searchIcon" />
@@ -57,6 +58,13 @@ export default function Topbar() {
           </div>
         </div>
 
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" onClick={() => setTheme(theme === "light" ? 'dark' : 'light')} />
+              <div class="slider round"></div>
+            </label>
+          </div>
+
         <div className="dropdown">
           <img src={
             user.profilePicture
@@ -71,7 +79,7 @@ export default function Topbar() {
               <div >Profile Git!</div>
             </Link>
 
-            <a style={{color:"black", cursor:"pointer"}} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
+            <a style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
 
 
             <a
@@ -81,6 +89,8 @@ export default function Topbar() {
             >
               Sign out
             </a>
+
+
           </div>
         </div>
 

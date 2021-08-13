@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import "./sidebar.css"
 import {
     RssFeed,
-    Chat,
     PlayCircleFilledOutlined,
-    Group,
-    Bookmark,
-    HelpOutline,
-    WorkOutline,
     Event,
-    School,
+    MenuBook,
+    EventNote,
+    Movie,
+    LocalMovies,
+    WhatsApp
 } from "@material-ui/icons";
 import BookModal from '../modals/BookModal'
 import SerieModal from '../modals/SerieModal'
@@ -41,7 +40,7 @@ export default function Sidebar() {
                     </li>
                     <li className="sidebarListItem">
                         <Link to="/messenger" style={{ textDecoration: "none", color: "white" }}>
-                            <Chat fontSize="large" className="sidebarIcon" />
+                            <WhatsApp fontSize="large" className="sidebarIcon" />
                             <span className="sidebarListItemText">Chats</span>
                         </Link>
                     </li>
@@ -50,31 +49,29 @@ export default function Sidebar() {
                         <span className="sidebarListItemText">Videos</span>
                     </li>
                     <li className="sidebarListItem">
-                        <Group fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Groups</span>
+                        <MenuBook fontSize="large" className="sidebarIcon" />
+                        <span className="sidebarListItemText">Books</span>
                     </li>
                     <li className="sidebarListItem">
-                        <Bookmark fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Bookmarks</span>
+                        <Movie fontSize="large" className="sidebarIcon" />
+                        <span className="sidebarListItemText">Movies</span>
                     </li>
                     <li className="sidebarListItem">
-                        <HelpOutline fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Questions</span>
+                        <LocalMovies fontSize="large" className="sidebarIcon" />
+                        <span className="sidebarListItemText">Series</span>
                     </li>
                     <li className="sidebarListItem">
-                        <WorkOutline fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Jobs</span>
+                        <EventNote fontSize="large" className="sidebarIcon" />
+                        <span className="sidebarListItemText">My Notes</span>
                     </li>
                     <li className="sidebarListItem">
-                        <Event fontSize="large" className="sidebarIcon" />
+                        <Event fontSize="large" className="sidebarIcon"/>
                         <span className="sidebarListItemText">Events</span>
                     </li>
-                    <li className="sidebarListItem">
-                        <School fontSize="large" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Courses</span>
-                    </li>
+                   
                 </ul>
                 <hr className="sidebarHr" />
+                
                 <BookModal />
                 <SerieModal />
                 <MovieModal />

@@ -9,11 +9,11 @@ import { ThemeContextProvider } from './context/ThemeContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <ThemeContextProvider>
+    <ThemeContextProvider>
+      <AuthContextProvider>
         <App />
-      </ThemeContextProvider>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

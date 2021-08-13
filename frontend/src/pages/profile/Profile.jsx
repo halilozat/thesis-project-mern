@@ -3,15 +3,17 @@ import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Col } from 'react-bootstrap'
+import ThemeContext from "../../context/ThemeContext"
 
 export default function Profile() {
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username;
+  const { theme, setTheme } = useContext(ThemeContext)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,7 +25,7 @@ export default function Profile() {
 
 
   return (
-    <>
+    <div className={`theme ${theme}`}>
       <Topbar />
       <div className="profile">
         <Sidebar />
@@ -65,6 +67,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
