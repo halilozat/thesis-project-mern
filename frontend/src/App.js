@@ -21,40 +21,40 @@ function App() {
   const { user } = useContext(AuthContext)
 
   return (
-    <div>
+      <div>
 
-      <Router>
+        <Router>
 
-        <Switch>
-          <Route path="/" exact >
-            {user ? <Home /> : <Register />}
-          </Route>
-          <Route path="/login">
-            {user
-              ? <Redirect to="/" />
-              : <Login />
-            }
-          </Route>
-          <Route path="/register">
-            {user
-              ? <Redirect to="/" />
-              : <Register />
-            }
-          </Route>
-          <Route path="/messenger">
-            {!user
-              ? <Redirect to="/" />
-              : <Messenger />
-            }
-          </Route>
-          <Route path="/profile/:username" component={Profile} />
-          <Route path="/book" component={book} />
-          <Route path="/myNote" component={Note} />
-        </Switch>
+          <Switch>
+            <Route path="/" exact >
+              {user ? <Home /> : <Register />}
+            </Route>
+            <Route path="/login">
+              {user
+                ? <Redirect to="/" />
+                : <Login />
+              }
+            </Route>
+            <Route path="/register">
+              {user
+                ? <Redirect to="/" />
+                : <Register />
+              }
+            </Route>
+            <Route path="/messenger">
+              {!user
+                ? <Redirect to="/" />
+                : <Messenger />
+              }
+            </Route>
+            <Route path="/profile/:username" component={Profile} />
+            <Route path="/book" component={book} />
+            <Route path="/myNotes" component={Note} />
+          </Switch>
 
-      </Router>
+        </Router>
 
-    </div>
+      </div>
   );
 }
 

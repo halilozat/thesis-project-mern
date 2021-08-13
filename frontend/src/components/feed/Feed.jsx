@@ -10,6 +10,8 @@ export default function Feed({ username }) {
   const [posts, setPosts] = useState([])
   const { user } = useContext(AuthContext)
 
+
+
   useEffect(() => {
     const fetchPosts = async () => {
       const res = username
@@ -25,7 +27,7 @@ export default function Feed({ username }) {
   }, [username, user._id]);
 
   return (
-    <div>
+    <div> 
       <div className="feed">
 
         <div className="feedWrapper">

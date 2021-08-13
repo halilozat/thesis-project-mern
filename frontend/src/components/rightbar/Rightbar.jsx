@@ -147,7 +147,7 @@ export default function Rightbar({ user }) {
                     </button>
                 )}
                 {user.username === currentUser.username && (
-                    <Link to="/myNote">
+                    <Link to="/myNotes">
                         <button className="rightbarEditButton" >
                             Notlarım
                         </button>

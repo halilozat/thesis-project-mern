@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import './note.css'
 import { useHistory } from "react-router-dom";
 import Topbar from '../../components/topbar/Topbar';
+import axios from "axios";
+import { AuthContext } from '../../context/AuthContext';
 
 const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition
@@ -14,8 +16,11 @@ mic.lang = 'tr'
 export default function Note() {
     const [isListening, setIsListening] = useState(false)
     const [note, setNote] = useState(null)
-    const [savedNotes, setSavedNotes] = useState(localStorage.savedNotes && JSON.parse(localStorage.savedNotes) || [])
+    const [savedNotes, setSavedNotes] = useState([])
     const history = useHistory()
+
+    const { user } = useContext(AuthContext);
+    const desc = useRef();
 
     const parseRegex = /(?<id>(\d*))\s(?=nolu).*(?<command>(sil))$/giu;
     const voiceMatch = parseRegex.exec(note);
@@ -27,10 +32,17 @@ export default function Note() {
         handleListen()
     }, [isListening])
 
+    // useEffect(() => {
+    //     localStorage.setItem('savedNotes', JSON.stringify(savedNotes))
+    // }, [savedNotes])
+
     useEffect(() => {
-        console.log("localstorage : " + savedNotes)
-        localStorage.setItem('savedNotes', JSON.stringify(savedNotes))
-    }, [savedNotes])
+        const fetchNotes = async () => {
+            const res = await axios.get("/notes")
+            setSavedNotes(res.data);
+        };
+        fetchNotes();
+    }, [savedNotes]);
 
     const handleListen = () => {
         if (isListening) {
@@ -61,7 +73,19 @@ export default function Note() {
         }
     }
 
-    const handleSaveNote = () => {
+    const handleSaveNote = async (e) => {
+        e.preventDefault();
+        const newNote = {
+            userId: user._id,
+            desc: note
+        }
+
+        try {
+            await axios.post("/notes", newNote);
+            window.location.reload();
+        } catch (err) { }
+
+
         setSavedNotes([...savedNotes, note])
         setNote('')
         console.log(savedNotes.length);
@@ -69,6 +93,7 @@ export default function Note() {
 
     const handleDelete = (e) => {
         localStorage.removeItem('savedNotes')
+        // history.push('/')
     }
 
     if (allNotesRemoveMatch) {
@@ -82,8 +107,13 @@ export default function Note() {
             <div className="container-box">
 
                 <div className="box">
+
+
                     <h2>Mevcut Notum</h2>
-                    {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
+                    {isListening
+                        ? <span >🎙️</span>
+                        : <span>🛑</span>
+                    }
                     <button className="note-button" style={{ cursor: "pointer" }} onClick={handleSaveNote} disabled={!note}>
                         Notu Kaydet
                     </button>
@@ -95,9 +125,9 @@ export default function Note() {
 
                 <div className="box">
                     <h2>Tüm Notlar</h2>
-                    {savedNotes && savedNotes.map((note) => (
-                        <div key={note} className="notes-box">
-                            <p>{note}</p>
+                    {savedNotes.map((note) => (
+                        <div key={user._id} className="notes-box">
+                            <p>{note.desc}</p>
                             <button onClick={handleDelete} className="notes-button">Sil</button>
                             <button className="notes-button"></button>
                         </div>

@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { logoutCall } from '../../apiCalls'
+import ThemeContext from "../../context/ThemeContext"
 
 
 export default function Topbar() {
 
   const { user, dispatch } = useContext(AuthContext);
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { theme, setTheme } = useContext(ThemeContext)
+
 
   const handleClick = () => {
     logoutCall(
@@ -67,6 +70,10 @@ export default function Topbar() {
             <Link style={{ textDecoration: "none", textAlign: "left" }} to={`/profile/${user.username}`}>
               <div >Profile Git!</div>
             </Link>
+
+            <a style={{color:"black", cursor:"pointer"}} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
+
+
             <a
               className="dropdown-content"
               onClick={handleClick}
