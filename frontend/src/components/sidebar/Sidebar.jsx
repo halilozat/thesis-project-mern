@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavDropdown,Dropdown, SplitButton, Navbar, Nav, Container } from 'react-bootstrap'
 import "./sidebar.css"
 import {
     RssFeed,
@@ -69,7 +70,7 @@ export default function Sidebar() {
                     <hr className="sidebarHr" />
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
-                            <Home fontSize="large" className="sidebarIcon" />
+                            <Home fontSize="large" className="sidebarIcon side" />
                             <span className="sidebarListItemText">
                                 <FormattedMessage id="home" />
                             </span>
@@ -129,6 +130,7 @@ export default function Sidebar() {
 
                     <hr className="sidebarHr" />
 
+                    
                     <br />
                     <br />
                     <br />

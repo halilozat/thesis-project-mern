@@ -130,7 +130,7 @@ export default function SimpleModal() {
     return (
         <div>
             <button type="button" className="sidebarAddButton" onClick={handleOpen}>
-                Kitap Ekle
+                <div className="modalContent">Kitap Ekle</div>
             </button>
             <Modal
                 open={open}

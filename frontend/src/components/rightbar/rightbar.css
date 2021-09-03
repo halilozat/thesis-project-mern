@@ -44,21 +44,13 @@
 
   .weekly{
     width: 100%;
-    border-radius: 20px;
+    border-radius: 20%;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     padding: 5%;
     margin-top: 10px;
   }
 
-  .secilen{
-    display: inline;
-    cursor: pointer;
-    border-radius: 30%;
-    color: white;
-    background-color: #555;
-    font-size: small;
-  }
   
   .rightbarFriendList {
     padding: 0;

@@ -1,7 +1,8 @@
 .sidebar {
-    flex: 5;
-    height: calc(100vh - 50px);
+    flex: 3;
+    height: calc(106vh);
     overflow-y: scroll;
+    overflow-x: hidden;
     position: sticky;
     top: 50px;
     background-color: #2e3236;
@@ -15,7 +16,7 @@
     background-color: #f1f1f175;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgb(179, 179, 179);
+    background-color: #2e3236;
   }
   
   .sidebarWrapper {
@@ -38,6 +39,7 @@
   .sidebarListItemText{
     font-size: medium;
     margin-left: 5px;
+    opacity: 1;
   }
   
   .sidebarIcon {
@@ -81,5 +83,64 @@
       margin-right: 10px;
   }
 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .sidebarListItemText {
+    display: none;
+  }
 
+  .sidebarWrapper {
+    padding: 15px;
+  }
+
+  .sidebarIcon {
+    font-size: x-large !important;
+    margin: 0;
+  }
+
+  .sidebarAddButton {
+    font-size: 7px;
+    overflow: hidden;
+    height: 50px;
+  }
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   
+  .sidebarListItemText {
+    opacity: 0;
+  }
+
+  .sidebarIcon {
+    font-size: xxx-large !important;
+  }
+
+  .sidebarAddButton {
+    font-size: small;
+    height: 60px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .sidebarListItemText {
+    display: none;
+  }
+
+  .sidebarWrapper {
+    padding: 10px;
+  }
+
+  .sidebarIcon {
+    font-size: large !important;
+    margin: 0;
+  }
+
+  .sidebarAddButton {
+    font-size: 0px;
+    overflow: hidden;
+    height: 20px;
+    
+  }
+
+}
