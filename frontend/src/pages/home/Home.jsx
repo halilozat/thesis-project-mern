@@ -19,10 +19,10 @@ export default function Home() {
                 <Col xs={2} md={2}>
                     <Sidebar />
                 </Col>
-                <Col xs={7} md={7}>
+                <Col xs={8} md={8}>
                     <Feed />
                 </Col>
-                <Col xs={3} md={3}>
+                <Col xs={2} md={2}>
                     <Rightbar />
                 </Col>
             </Row>

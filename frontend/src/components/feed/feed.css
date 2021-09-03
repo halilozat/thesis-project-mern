@@ -1,9 +1,23 @@
-.feed{
-    flex:5.5;
+.feedWrapper{
+    margin: 3% 10%;
 }
 
-.feedWrapper{
-    padding: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .feedWrapper{
+        margin: 3% 5%;
+    }
 }
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .feedWrapper{
+        margin: 3% 2%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .feedWrapper{
+        margin: 3% 0;
+    }
+}
+
+

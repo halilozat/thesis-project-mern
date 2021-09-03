@@ -130,7 +130,7 @@ export default function SimpleModal() {
     return (
         <div>
             <button type="button" className="sidebarAddButton" onClick={handleOpen}>
-                <div className="modalContent">Kitap Ekle</div>
+                <div className="modalContent" style={{wordWrap:'break-word'}}>Kitap Ekle</div>
             </button>
             <Modal
                 open={open}
