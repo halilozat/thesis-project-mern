@@ -1,5 +1,6 @@
 .rightBar{
-  word-wrap:break-word
+  word-wrap:break-word;
+  z-index: 10;
 }
 
 .rightbarWrapper {
@@ -137,13 +138,6 @@
     outline: none;
   }
 
-
-  @media screen and (max-width: 1024px) {
+ @media screen and (max-width:1024) {
     
-    .rightBar{
-      display: none;
-    }
-    
-  }
-  
- 
+ }

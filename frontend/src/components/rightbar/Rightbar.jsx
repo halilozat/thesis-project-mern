@@ -1,5 +1,6 @@
 import "./rightbar.css";
 import Categories from "../categories/Categories";
+import styled from 'styled-components';
 import axios from 'axios'
 import Weekly from "../weekly/Weekly";
 import { Link } from "react-router-dom";
@@ -7,7 +8,36 @@ import { AuthContext } from '../../context/AuthContext'
 import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBook, TrackChanges, Info } from "@material-ui/icons";
 import { useContext, useEffect, useState } from "react";
 
-export default function Rightbar({ user }) {
+const RightUl = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;  
+  z-index: 10;
+  @media (max-width: 1024px) {
+    align-items: center;
+    background-color: #2e3236;
+    position: fixed;
+    padding-top: 5rem;
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    top: 4.3rem;
+    .rightBar{
+        top: 4.3rem;
+    }
+
+    right: 0;
+    height: 100vh;
+    width: 400px;
+    transition: transform 0.3s ease-in-out !important;
+    li {
+      color: #fff;
+    }
+  }
+`;
+
+
+
+
+export default function Rightbar({ user, open }) {
 
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
     const [friends, setFriends] = useState([]);
@@ -49,16 +79,19 @@ export default function Rightbar({ user }) {
 
     const HomeRightbar = () => {
         return (
-            <>
-                <div className="rightBar">
-                    <Weekly />
+            <RightUl open={open}>
+                <li>
 
-                    <Categories />
+                    <div className="rightBar">
+                        <Weekly />
 
-                    <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
+                        <Categories />
 
-                </div>
-            </>
+                        <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
+
+                    </div>
+                </li>
+            </RightUl>
         );
     };
 

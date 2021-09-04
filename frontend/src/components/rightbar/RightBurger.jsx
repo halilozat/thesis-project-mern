@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import RightNav from './RightNav';
+import Rightbar from './Rightbar';
 
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
   position: fixed;
-  top: 15px;
+  top: 70px;
   right: 20px;
   z-index: 20000;
   display: none;
@@ -45,7 +45,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open}/>
+      <Rightbar open={open}/>
     </>
   )
 }

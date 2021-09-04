@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import ThemeContext from '../../context/ThemeContext';
 import { logoutCall } from '../../apiCalls';
-import Weekly from '../weekly/Weekly'
 import './topbar.css'
 
 const Ul = styled.ul`
@@ -14,7 +13,7 @@ const Ul = styled.ul`
   display: flex;
   flex-flow: row nowrap;
  
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-flow: column nowrap;
     background-color: #2e3236;
     position: fixed;
@@ -23,7 +22,7 @@ const Ul = styled.ul`
     top: 0;
     right: 0;
     height: 100vh;
-    width: 200px;
+    width: 400px;
     transition: transform 0.3s ease-in-out;
     li {
       color: #fff;
@@ -112,13 +111,6 @@ const RightNav = ({ open }) => {
         </div>
 
       </li>
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-     
 
 
     </Ul>

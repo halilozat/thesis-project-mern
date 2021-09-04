@@ -3,7 +3,7 @@ import Navbar from "../../components/burgerMenu/Navbar"
 import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Feed from "../../components/feed/Feed"
-import Rightbar from "../../components/rightbar/Rightbar"
+import RightBurger from "../../components/rightbar/RightBurger"
 import { Row, Col } from 'react-bootstrap'
 import ThemeContext from "../../context/ThemeContext"
 import { useContext } from "react"
@@ -24,7 +24,7 @@ export default function Home() {
                     <Feed />
                 </Col>
                 <Col xs={2} md={2}>
-                    <Rightbar />
+                    <RightBurger />
                 </Col>
             </Row>
 
