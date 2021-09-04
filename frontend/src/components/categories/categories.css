@@ -7,9 +7,10 @@
     padding: 10px 10px 0 0;
   }
   
-  .birthdayContainer {
+  .categoryContainer {
     display: flex;
     align-items: center;
+    text-align: center;
     margin: 7px;
   }
   
@@ -24,8 +25,6 @@
     font-size: 15px;
   }
 
-
-  
   .rightbarAd {
     width: 100%;
     border-radius: 10px;

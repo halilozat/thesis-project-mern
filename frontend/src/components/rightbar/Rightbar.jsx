@@ -50,14 +50,14 @@ export default function Rightbar({ user }) {
     const HomeRightbar = () => {
         return (
             <>
-                <Weekly />
+                <div className="rightBar">
+                    <Weekly />
 
-                <Categories />
+                    <Categories />
 
-                <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
+                    <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
 
-
-
+                </div>
             </>
         );
     };

@@ -1,17 +1,16 @@
-.rightbar {
-    flex: 6 !important;
-    
-  }
+.rightBar{
+  word-wrap:break-word
+}
+
+.rightbarWrapper {
+  padding: 10%
+}
   
-  .rightbarWrapper {
-    padding: 10px 10px 0 0;
-  }
-  
-  .birthdayContainer {
+.birthdayContainer {
     display: flex;
     align-items: center;
     margin: 7px;
-  }
+}
   
   .birthdayImg {
     width: 40px;
@@ -47,7 +46,7 @@
     border-radius: 20%;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    padding: 5%;
+    padding: 10%;
     margin-top: 10px;
   }
 
@@ -137,3 +136,14 @@
   .rightbarFollowButton:focus{
     outline: none;
   }
+
+
+  @media screen and (max-width: 1024px) {
+    
+    .rightBar{
+      display: none;
+    }
+    
+  }
+  
+ 

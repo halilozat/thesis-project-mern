@@ -1,7 +1,11 @@
+body {
+    overflow-x:hidden !important;
+}
 
 .homeContainer{
     display: flex;
     width: 100%;
+
 }
 
 .theme.dark{

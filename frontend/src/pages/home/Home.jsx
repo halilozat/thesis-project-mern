@@ -1,4 +1,5 @@
 import "./home.css"
+import Navbar from "../../components/burgerMenu/Navbar"
 import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Feed from "../../components/feed/Feed"

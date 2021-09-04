@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { logoutCall } from '../../apiCalls'
 import ThemeContext from "../../context/ThemeContext"
+import Burger from "../burgerMenu/Burger";
 
 
 export default function Topbar() {
@@ -28,7 +29,6 @@ export default function Topbar() {
           <span className="logo" >Thesis</span>
         </Link>
       </div>
-
       <div className="topbarCenter">
         <div className="searchbar">
           <Search className="searchIcon" />
@@ -39,61 +39,7 @@ export default function Topbar() {
         </div>
       </div>
       <div className="topbarRight">
-        <div className="topbarLinks">
-          {/* <span className="topbarLink">Home</span>
-          <span className="topbarLink">Profile</span> */}
-        </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
-            <Person fontSize="large" />
-            <span className="topbarIconBadge">1</span>
-          </div>
-          <div className="topbarIconItem">
-            <Chat fontSize="large" />
-            <span className="topbarIconBadge">2</span>
-          </div>
-          <div className="topbarIconItem">
-            <Notifications fontSize="large" />
-            <span className="topbarIconBadge">1</span>
-          </div>
-        </div>
-
-          <div className="theme-switch-wrapper">
-            <label className="theme-switch" htmlFor="checkbox">
-              <input type="checkbox" id="checkbox" onClick={() => setTheme(theme === "light" ? 'dark' : 'light')} />
-              <div className="slider round"></div>
-            </label>
-          </div>
-
-        <div className="dropdown">
-          <img src={
-            user.profilePicture
-              ? publicFolder + user.profilePicture
-              : publicFolder + "person/noAvatar.png"
-          }
-            alt=""
-            className="topbarImg"
-          />
-          <div className="dropdown-content">
-            <Link style={{ textDecoration: "none", textAlign: "left" }} to={`/profile/${user.username}`}>
-              <div >Profile Git!</div>
-            </Link>
-
-            <a style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
-
-
-            <a
-              className="dropdown-content"
-              onClick={handleClick}
-              style={{ textDecoration: "none", cursor: "pointer", textAlign: "center" }}
-            >
-              Sign out
-            </a>
-
-
-          </div>
-        </div>
-
+        <Burger />
       </div>
     </div>
   )
