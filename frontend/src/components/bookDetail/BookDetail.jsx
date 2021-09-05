@@ -68,6 +68,11 @@ export default function book() {
                             <li>"What if I was viewing this on mobile&mdash;"</li>
                         </ul>
 
+                        <h2 className="chapter-title"><h6></h6></h2>
+                        <p>İnceleyen: Halil Özat</p>
+                        <p>İnceleme Puanı: 10</p>
+
+
                     </article>
 
 

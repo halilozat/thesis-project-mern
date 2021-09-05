@@ -3,6 +3,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { Cancel, PermMedia } from "@material-ui/icons"
 
 
 
@@ -106,12 +107,25 @@ export default function SimpleModal() {
                                 <div className="app-form-group message">
                                     <input
                                         type="number"
-                                        min="1" 
+                                        min="1"
                                         max="100"
                                         className="app-form-control"
                                         placeholder="Puan"
                                         ref={point}
                                     />
+                                </div>
+                                <div className="shareOptions">
+                                    <label htmlFor="file" className="shareOption">
+                                        <PermMedia htmlColor="tomato" className="shareIcon" />
+                                        <span className="shareOptionText">Foto Ekle </span>
+                                        <input
+                                            style={{ display: "none" }}
+                                            type="file"
+                                            id="file"
+                                            accept=".png,.jpeg,.jpg"
+                                            onChange={(e) => setFile(e.target.files[0])}
+                                        />
+                                    </label>
                                 </div>
                                 <div className="app-form-group buttons">
                                     <form onSubmit={submitHandler}>
@@ -131,7 +145,7 @@ export default function SimpleModal() {
     return (
         <div>
             <button type="button" className="sidebarAddButton" onClick={handleOpen}>
-                <div className="modalContent" style={{wordWrap:'break-word'}}>Kitap Ekle</div>
+                <div className="modalContent" style={{ wordWrap: 'break-word' }}>Kitap Ekle</div>
             </button>
             <Modal
                 open={open}

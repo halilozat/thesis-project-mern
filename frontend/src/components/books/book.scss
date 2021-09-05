@@ -1,0 +1,148 @@
+
+
+:root {
+  --mobile-width: 325px;
+  --mobile-height: 670px;
+  --mobile-radius: 25px;
+  --separator-height: 500px;
+  
+  --bg: #fdf3f2;
+  --mobile-bg: #fdeae6;
+  --intro-bg: #eed7d1;
+  --font-color: #807b7b;
+  
+  --transition: transform 0.7s ease-in-out;
+}
+
+.container {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 26px;
+  margin-top: 10px;
+  color: var(--font-color);
+}
+
+.mobile-layout {
+  width: var(--mobile-width);
+  height: var(--mobile-height);
+  margin: 30px 0;
+  border-radius: var(--mobile-radius);
+  perspective: 500px;
+  overflow: hidden;
+  color: var(--font-color);
+  background-color: var(--mobile-bg);
+  box-shadow: 36px 36px 50px 15px #eed7d1d1;
+  
+  .notification-header {
+    position: fixed;
+    top: 5px;
+    width: 100%;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    z-index: 6;
+  }
+  
+  .actions { 
+    position: fixed;
+    top: 37px;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    z-index: 6;
+  }
+  
+  .book-cover {
+    position: relative;
+    height: var(--separator-height);
+    width: calc(var(--mobile-width) * 2);
+    left: -52.5%;
+    border-top-left-radius: var(--mobile-radius);
+    border-top-right-radius: var(--mobile-radius);
+    background-color: var(--intro-bg);
+    transform-style: preserve-3d;
+    transform-origin: 50% 40%;
+    transition: var(--transition);
+    z-index: 4;
+  }
+  
+  .book-top {
+    width: 170px;
+    position: absolute;
+    top: 180px;
+    left: 250px;
+    z-index: 5;
+    transform: translateZ(28.5px);
+  }
+
+  .book-side {
+    position: absolute;
+    top: 430px; 
+    left: 222px;
+    transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
+  }
+  
+  .book-cover:hover {
+    transform: rotateX(75deg) translateZ(3px) scale(0.75);
+  }
+
+  .book-cover:hover + .preface {
+    transform: translateY(-302px);
+    .icon {
+      transform: rotateX(180deg);
+    }
+  }
+  
+  .preface {
+    height: var(--separator-height);
+    padding: 50px;
+    transition: var(--transition);//cubic-bezier(1,.98,.82,.98);
+    background: white;
+
+      .header {
+        display: flex;
+        align-items: center;
+      }
+
+      .title {
+        //font-family: 'Open Sans', sans-serif;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 26px;
+        margin-bottom: 10px;
+      }
+
+      .author {
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .icon {
+        transform-origin: top;
+        transition: var(--transition);
+      }
+
+      .body {
+        font-family: 'Quicksand', sans-serif;
+      }
+
+      .body p:first-child {
+        margin-bottom: 15px;
+      }
+  }
+}
+

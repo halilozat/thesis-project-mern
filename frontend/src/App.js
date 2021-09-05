@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
-import book from './components/books/Book';
+import Book from './pages/book/Book'
 import bookDetail from './components/bookDetail/BookDetail';
 import Note from './pages/note/Note';
 
@@ -49,7 +49,7 @@ function App() {
               }
             </Route>
             <Route path="/profile/:username" component={Profile} />
-            <Route path="/book" component={book} />
+            <Route path="/books" component={Book} />
             <Route path="/bookDetail" component={bookDetail} />
             <Route path="/myNotes" component={Note} />
           </Switch>

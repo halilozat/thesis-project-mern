@@ -1,3 +1,4 @@
+
 .topbarContainer {
     height: 60px;
     width: 100%;
@@ -56,6 +57,7 @@
     align-items: center;
     justify-content: space-around;
     color: white;
+    margin-top: 10px;
   }
   
   .topbarLink {

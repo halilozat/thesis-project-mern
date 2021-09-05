@@ -225,13 +225,35 @@
     }
   }
   
-  @media screen and (max-width: 600px) {
-    .screen-body {
-      padding: 40px;
-    }
   
-    .screen-body-item {
-      padding: 0;
-    }
+.shareOptions{
+    display: flex;
+}
+
+.shareOption{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shareIcon{
+    font-size: 18px;
+    color: #888;
+}
+
+.shareOptionText{
+    font-size: 10px;
+    font-weight: 200;
+    color: #888;
+}
+  
+
+@media screen and (max-width: 600px) {
+  .screen-body {
+    padding: 40px;
   }
-  
+
+  .screen-body-item {
+    padding: 0;
+  }
+}

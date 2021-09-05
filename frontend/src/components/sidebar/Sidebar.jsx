@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavDropdown,Dropdown, SplitButton, Navbar, Nav, Container } from 'react-bootstrap'
+import { NavDropdown, Dropdown, SplitButton, Navbar, Nav, Container } from 'react-bootstrap'
 import "./sidebar.css"
 import {
     RssFeed,
@@ -90,10 +90,12 @@ export default function Sidebar() {
                             </span>
                         </li>
                         <li className="sidebarListItem">
-                            <MenuBook fontSize="large" className="sidebarIcon" />
-                            <span className="sidebarListItemText">
-                                <FormattedMessage id="books" />
-                            </span>
+                            <Link to="/books" style={{ textDecoration: "none", color: "white" }}>
+                                <MenuBook fontSize="large" className="sidebarIcon" />
+                                <span className="sidebarListItemText">
+                                    <FormattedMessage id="books" />
+                                </span>
+                            </Link>
                         </li>
                         <li className="sidebarListItem">
                             <Movie fontSize="large" className="sidebarIcon" />
@@ -130,7 +132,7 @@ export default function Sidebar() {
 
                     <hr className="sidebarHr" />
 
-                    
+
                     <br />
                     <br />
                     <br />

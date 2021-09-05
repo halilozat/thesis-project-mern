@@ -1,0 +1,14 @@
+body {
+    overflow-x:hidden !important;
+}
+
+.homeContainer{
+    display: flex;
+    width: 100%;
+
+}
+
+.theme.dark{
+    background-color: #373d42;
+    color: white;
+}

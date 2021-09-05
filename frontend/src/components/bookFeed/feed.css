@@ -1,0 +1,28 @@
+.feed {
+    position: relative;
+    z-index: 0 !important;
+}
+
+.feedWrapper{
+    margin: 3% 7%;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .feedWrapper{
+        margin: 3% 5%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .feedWrapper{
+        margin: 3% 2%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .feedWrapper{
+        margin: 3% 0;
+    }
+}
+
+

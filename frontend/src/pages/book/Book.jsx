@@ -1,15 +1,16 @@
-import "./home.css"
-import Topbar from "../../components/topbar/Topbar"
-import Sidebar from "../../components/sidebar/Sidebar"
-import Feed from "../../components/feed/Feed"
-import RightBurger from "../../components/rightbar/RightBurger"
-import { Row, Col } from 'react-bootstrap'
+import React from 'react'
 import ThemeContext from "../../context/ThemeContext"
 import { useContext } from "react"
+import Sidebar from '../../components/sidebar/Sidebar'
+import Topbar from '../../components/topbar/Topbar'
+import RightBurger from "../../components/rightbar/RightBurger"
+import BookFeed from "../../components/bookFeed/BookFeed"
+import { Row, Col } from 'react-bootstrap'
 
-export default function Home() {
+
+const Book = () => {
+
     const { theme, setTheme } = useContext(ThemeContext)
-
 
 
     return (
@@ -20,7 +21,7 @@ export default function Home() {
                     <Sidebar />
                 </Col>
                 <Col xs={8} md={8}>
-                    <Feed />
+                    <BookFeed />
                 </Col>
                 <Col xs={2} md={2}>
                     <RightBurger />
@@ -30,3 +31,4 @@ export default function Home() {
     )
 }
 
+export default Book
