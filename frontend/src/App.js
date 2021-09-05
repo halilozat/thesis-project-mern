@@ -15,6 +15,7 @@ import { AuthContext } from './context/AuthContext';
 import Book from './pages/book/Book'
 import bookDetail from './components/bookDetail/BookDetail';
 import Note from './pages/note/Note';
+import UserBooks from './pages/userBooks/UserBooks';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             </Route>
             <Route path="/profile/:username" component={Profile} />
             <Route path="/books" component={Book} />
+            <Route path="/userBooks" component={UserBooks} />
             <Route path="/bookDetail" component={bookDetail} />
             <Route path="/myNotes" component={Note} />
           </Switch>

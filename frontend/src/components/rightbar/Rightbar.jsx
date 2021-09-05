@@ -133,11 +133,12 @@ export default function Rightbar({ user, open }) {
 
                 <h4 className="rightbarTitle"><TrackChanges />2021 Hedefleri<TrackChanges /></h4>
                 <div className="rightbarInfo">
-                    <div className="rightbarInfoItem">
-                        <span className="rightbarInfoKey"><MenuBook /> Okuduğu Kitaplar :</span>
-                        <span className="rightbarInfoValue">40/100</span>
-                    </div>
-
+                    <Link to="/userBooks">
+                        <div className="rightbarInfoItem">
+                            <span className="rightbarInfoKey"><MenuBook /> Okuduğu Kitaplar :</span>
+                            <span className="rightbarInfoValue">40/100</span>
+                        </div>
+                    </Link>
                     <div className="rightbarInfoItem">
                         <span className="rightbarInfoKey"><Theaters /> İzlediği Filmler :</span>
                         <span className="rightbarInfoValue">20/50</span>
