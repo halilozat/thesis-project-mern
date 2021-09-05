@@ -74,7 +74,7 @@ export default function SimpleModal() {
                                 <span>BIR KITAP</span>
                                 <span>EKLE</span>
                             </div>
-                            <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+                            {/* <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div> */}
                         </div>
                         <div className="screen-body-item">
                             <div className="app-form">
@@ -83,6 +83,7 @@ export default function SimpleModal() {
                                         className="app-form-control"
                                         placeholder="Kitap Adı"
                                         ref={name}
+                                        required
                                     />
                                 </div>
                                 <div className="app-form-group">

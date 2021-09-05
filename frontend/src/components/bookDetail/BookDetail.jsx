@@ -1,5 +1,5 @@
 import React from 'react'
-import './book.css'
+import './bookdetail.css'
 
 export default function book() {
     return (
@@ -9,11 +9,11 @@ export default function book() {
 
                     <header>
                         <h1>Kitap İncelemesi</h1>
-                        <h6>HALİL ÖZAT</h6>
+                        <h6>DOSTOYEVSKİ</h6>
                     </header>
 
                     <article>
-                        <h2 className="chapter-title">Kitap İncelemesi</h2>
+                        <h2 className="chapter-title">Suç ve Ceza</h2>
                         <p>
                             Sublime Text 2 was opened and a new document was created. "I love this time of year," Erin gleefully thought to herself.
                         </p>
