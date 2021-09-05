@@ -11,12 +11,12 @@ import { Cancel, PermMedia } from "@material-ui/icons"
 export default function SimpleModal() {
 
     const { user } = useContext(AuthContext);
-    //const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+    // const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
     const name = useRef();
     const writer = useRef();
     const desc = useRef();
     const point = useRef();
-    const [file, setFile] = useState(null);
+    const [bookFile, setBookFile] = useState(null);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -27,11 +27,11 @@ export default function SimpleModal() {
             desc: desc.current.value,
             point: point.current.value
         };
-        if (file) {
+        if (bookFile) {
             const data = new FormData();
-            const fileName = Date.now() + file.name;
+            const fileName = Date.now() + bookFile.name;
             data.append("name", fileName);
-            data.append("file", file);
+            data.append("file", bookFile);
             newBook.img = fileName;
             try {
                 await axios.post("/upload", data);
@@ -114,21 +114,22 @@ export default function SimpleModal() {
                                         ref={point}
                                     />
                                 </div>
-                                <div className="shareOptions">
-                                    <label htmlFor="file" className="shareOption">
-                                        <PermMedia htmlColor="tomato" className="shareIcon" />
-                                        <span className="shareOptionText">Foto Ekle </span>
-                                        <input
-                                            style={{ display: "none" }}
-                                            type="file"
-                                            id="file"
-                                            accept=".png,.jpeg,.jpg"
-                                            onChange={(e) => setFile(e.target.files[0])}
-                                        />
-                                    </label>
-                                </div>
+
                                 <div className="app-form-group buttons">
                                     <form onSubmit={submitHandler}>
+                                        <div className="shareOptions">
+                                            <label htmlFor="file" className="shareOption">
+                                                <PermMedia htmlColor="tomato" className="shareIcon" />
+                                                <span className="shareOptionText">Foto Ekle </span>
+                                                <input
+                                                    style={{ display: "none" }}
+                                                    type="file"
+                                                    id="file"
+                                                    accept=".png,.jpeg,.jpg"
+                                                    onChange={(e) => setBookFile(e.target.files[0])}
+                                                />
+                                            </label>
+                                        </div>
                                         <button className="app-form-button" type="submit">EKLE</button>
                                         <button className="app-form-button" onClick={handleClose}>KAPAT</button>
                                     </form>

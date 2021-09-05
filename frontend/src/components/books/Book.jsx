@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './book.scss'
+import axios from 'axios'
+import { format } from 'timeago.js'
+import { Link } from 'react-router-dom'
+import { AuthContext } from "../../context/AuthContext"
 
-export default function book() {
+export default function Book({ book }) {
+
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
+    const [user, setUser] = useState({})
+    const { user: currentUser } = useContext(AuthContext)
 
+    useEffect(() => {
+        const fetchUser = async () => {
+            const res = await axios.get(`/users?userId=${book.userId}`)
+            setUser(res.data)
+        }
+        fetchUser()
+    }, [book.userId])
 
     return (
         <div classNameName="book">
@@ -25,30 +39,31 @@ export default function book() {
                             <i className="fas fa-bookmark"></i>
                         </div>
                         <div className="book-cover">
-                            <img 
-                            className="book-top" 
-                            // src="https://i.pinimg.com/originals/52/ec/12/52ec12f7dd324864949267c92cce2e43.jpg" 
-                            src="https://i.pinimg.com/originals/52/ec/12/52ec12f7dd324864949267c92cce2e43.jpg" 
-                            alt="book-top" />
+                            <img
+                                className="book-top"
+                                // src="https://i.pinimg.com/originals/52/ec/12/52ec12f7dd324864949267c92cce2e43.jpg" 
+                                src={publicFolder + book.img}
+                                alt="book-top" />
                             <img className="book-side" src="https://saranyamk.github.io/images-repo/book-side.svg" alt="book-side" />
                         </div>
                         <div className="preface">
                             <div className="content">
                                 <div className="header">
-                                    <div className="title">The Diary of a Young Girl</div>
+                                    <div className="title">{book?.name}</div>
                                     <div className="icon">
                                         <i className="fas fa-chevron-down"></i>
                                     </div>
                                 </div>
-                                <div className="author">by Anne Frank</div>
+                                <div className="author">Yazar: {book?.writer}</div>
+                                <div className="author">İnceleyen: {user.username}</div>
                                 <div className="body">
                                     <p>
-                                        also known as The Diary of Anne Frank, is a book of the writings from the Dutch-language diary kept by Anne Frank while she was in hiding for two years with her family during the Nazi occupation of the Netherlands
+                                        {book?.desc}
                                     </p>
-                                    <p>
+                                    {/* <p>
                                         Anne calls her diary "Kitty", so almost all of the letters are written to Kitty.
-                                    </p>
-                                    
+                                    </p> */}
+
                                 </div>
                             </div>
                         </div>
