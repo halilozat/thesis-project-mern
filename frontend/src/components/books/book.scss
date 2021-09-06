@@ -1,148 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
 
 
-:root {
-  --mobile-width: 325px;
-  --mobile-height: 670px;
-  --mobile-radius: 25px;
-  --separator-height: 500px;
-  
-  --bg: #fdf3f2;
-  --mobile-bg: #fdeae6;
-  --intro-bg: #eed7d1;
-  --font-color: #807b7b;
-  
-  --transition: transform 0.7s ease-in-out;
-}
 
-.container {
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-}
-
-.info {
-  font-family: 'Quicksand', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  font-size: 26px;
-  margin-top: 10px;
-  color: var(--font-color);
-}
-
-.mobile-layout {
-  width: var(--mobile-width);
-  height: var(--mobile-height);
-  margin: 30px 0;
-  border-radius: var(--mobile-radius);
-  perspective: 500px;
+.movie_card{
+  margin: 0;
+  background: black;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 350px;
+  margin: 70px auto; 
   overflow: hidden;
-  color: var(--font-color);
-  background-color: var(--mobile-bg);
-  box-shadow: 36px 36px 50px 15px #eed7d1d1;
-  
-  .notification-header {
-    position: fixed;
-    top: 5px;
-    width: 100%;
-    padding: 5px 15px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    z-index: 6;
+  border-radius: 20px;
+  transition: all 0.4s;
+  &:hover{
+    transform: scale(1.02);
+    transition: all 0.4s;
   }
-  
-  .actions { 
-    position: fixed;
-    top: 37px;
-    width: 100%;
-    padding: 50px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    z-index: 6;
-  }
-  
-  .book-cover {
+  .info_section{
     position: relative;
-    height: var(--separator-height);
-    width: calc(var(--mobile-width) * 2);
-    left: -52.5%;
-    border-top-left-radius: var(--mobile-radius);
-    border-top-right-radius: var(--mobile-radius);
-    background-color: var(--intro-bg);
-    transform-style: preserve-3d;
-    transform-origin: 50% 40%;
-    transition: var(--transition);
-    z-index: 4;
-  }
-  
-  .book-top {
-    width: 170px;
-    position: absolute;
-    top: 180px;
-    left: 250px;
-    z-index: 5;
-    transform: translateZ(28.5px);
-  }
-
-  .book-side {
-    position: absolute;
-    top: 430px; 
-    left: 222px;
-    transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
-  }
-  
-  .book-cover:hover {
-    transform: rotateX(75deg) translateZ(3px) scale(0.75);
-  }
-
-  .book-cover:hover + .preface {
-    transform: translateY(-302px);
-    .icon {
-      transform: rotateX(180deg);
+    width: 100%;
+    height: 100%;
+	  background-blend-mode: multiply;
+    z-index: 2;
+    border-radius: 10px;
+    .movie_header{
+      position: relative;
+      padding: 25px;
+      height: 40%;
+      h1{
+        color: #fff;
+        font-weight: 400;
+      }
+      h4{
+        color: #9ac7fa;
+        font-weight: 400;
+      }
+      .minutes{
+        display: inline-block;
+        margin-top: 10px;
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid rgba(255,255,255,0.13);
+      }
+      .type{
+        display: inline-block;
+        color: #cee4fd;
+        margin-left: 10px;
+      }
+      .locandina{
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        height: 120px;
+        box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+      }
+    }
+    .movie_desc{
+      padding: 25px;
+      height: 50%;
+      .text{
+        color: #cfd6e1;
+      }
+    }
+    .movie_social{
+      height: 10%;
+      padding-left: 15px;
+      padding-bottom: 20px;
+      ul{
+        list-style: none;
+        padding: 0;
+        li{
+          display: inline-block;
+          color: rgba(255,255,255,0.4);
+          transition: color 0.3s;
+          transition-delay: 0.15s;
+          margin: 0 10px;
+          &:hover{
+            transition: color 0.3s;
+            color: rgba(255,255,255,0.8);
+          }
+          i{
+            font-size: 19px;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
-  
-  .preface {
-    height: var(--separator-height);
-    padding: 50px;
-    transition: var(--transition);//cubic-bezier(1,.98,.82,.98);
-    background: white;
-
-      .header {
-        display: flex;
-        align-items: center;
-      }
-
-      .title {
-        //font-family: 'Open Sans', sans-serif;
-        font-family: 'Quicksand', sans-serif;
-        font-size: 26px;
-        margin-bottom: 10px;
-      }
-
-      .author {
-        font-family: 'Open Sans', sans-serif;
-        font-style: italic;
-        margin-bottom: 20px;
-      }
-
-      .icon {
-        transform-origin: top;
-        transition: var(--transition);
-      }
-
-      .body {
-        font-family: 'Quicksand', sans-serif;
-      }
-
-      .body p:first-child {
-        margin-bottom: 15px;
-      }
+  .blur_back{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%; right: 0;
+    background-size: cover;
+    border-radius: 11px;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .movie_header{
+    width: 60%;
+  }
+  
+  .movie_desc{
+    width: 50%;
+  }
+  
+  .info_section{
+    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+  }
+  
+  .blur_back{
+    width: 80%;
+    background-position: -100% 10% !important;  
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie_card{
+    width: 95%;
+    margin: 70px auto; 
+    min-height: 350px;
+    height: auto;
+  }
+  
+  .blur_back{
+    width: 100%;
+    background-position: 50% 50% !important;  
+  }
+  
+  .movie_header{
+    width: 100%;
+    margin-top: 85px;
+  }
+  
+  .movie_desc{
+    width: 100%;
+  }
+  
+  .info_section{
+    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
+    display: inline-grid;
+  }
+}
+
+
+#bright{
+  box-shadow: 0px 0px 150px -45px rgba(255, 51, 0, 0.5);
+  &:hover{
+    box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);
+  }
+}
+
+.bright_back{
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book03.jpg");
+}
+
+#tomb{
+  box-shadow: 0px 0px 150px -45px rgba(19, 160, 134, 0.6);
+  &:hover{
+    box-shadow: 0px 0px 120px -55px rgba(19, 160, 134, 0.6);
+  }
+}
+
+.tomb_back{
+  background: url("https://fsmedia.imgix.net/cd/c9/5e/ba/4817/4d9a/93f0/c776ec32ecbc/lara-crofts-neck-looks-unnatural-in-the-new-poster-for-tomb-raider.png");
+}
+
+#ave{
+  box-shadow: 0px 0px 150px -45px rgba(199,147,75, 0.7);
+  margin-bottom: 200px;
+  &:hover{
+    box-shadow: 0px 0px 120px -55px rgba(199,147,75, 0.7);
+  }
+}
+
+.ave_back{
+    background: url("https://www.gannett-cdn.com/-mm-/c03fd140debe8ad4c05cf81a5cad7ad61a12ce52/c=0-1580-2985-3266&r=x803&c=1600x800/local/-/media/2017/06/09/USATODAY/USATODAY/636326272873599176-Black-Panther-Teaser.jpg");
+}
