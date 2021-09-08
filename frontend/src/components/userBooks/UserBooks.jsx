@@ -1,20 +1,56 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../../context/AuthContext'
+import UserBookList from '../userBookList/UserBookList'
 import './userbooks.css'
 
 const UserBooks = () => {
+
+
+    const [books, setBooks] = useState([])
+    const { user } = useContext(AuthContext)
+
+
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            const res = await axios.get("books/myBooks/" + user.username)
+            setBooks(
+                res.data.sort((p1, p2) => {
+                    return new Date(p2.createdAt) - new Date(p1.createdAt);
+                })
+            );
+        };
+        fetchBooks();
+    }, [user.username]);
+
+
+
     return (
         <>
 
             <h1 className="userBookTitle anarchy block">
                 OKUDUĞUM KİTAPLAR
                 <br />
-                <h3>(140 Kitap)</h3>
+                <h3>({books.length} Kitap)</h3>
             </h1>
 
 
             <ul className="ulList">
-                <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book10.jpg" alt="" /></li>
-                <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book02.jpg" alt="" /></li>
+
+                {books.map((b) => (
+                    
+                    <UserBookList key={b._id} book={b} />
+                ))}
+
+                {/* <Post key={b._id} book={b} /> */}
+
+
+
+
+
+
+                {/* <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book02.jpg" alt="" /></li>
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book03.jpg" alt="" /></li>
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book04.jpg" alt="" /></li>
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book05.jpg" alt="" /></li>
@@ -90,7 +126,7 @@ const UserBooks = () => {
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book31.jpg" alt="" /></li>
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book32.jpg" alt="" /></li>
                 <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book33.jpg" alt="" /></li>
-                <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book34.jpg" alt="" /></li>
+                <li className="liList"><img className="imgList" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book34.jpg" alt="" /></li> */}
             </ul>
         </>
     )

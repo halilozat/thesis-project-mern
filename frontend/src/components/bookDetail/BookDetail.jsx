@@ -1,7 +1,7 @@
 import React from 'react'
 import './bookdetail.css'
 
-export default function book() {
+export default function Book() {
     return (
         <div id="wrapper">
             <div id="container">

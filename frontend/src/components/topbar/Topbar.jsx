@@ -1,18 +1,15 @@
 import "./topbar.css"
-import { Search, Person, Chat, Notifications } from "@material-ui/icons"
+import { Search } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { logoutCall } from '../../apiCalls'
-import ThemeContext from "../../context/ThemeContext"
 import Burger from "../burgerMenu/Burger";
 
 
 export default function Topbar() {
 
-  const { user, dispatch } = useContext(AuthContext);
-  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { dispatch } = useContext(AuthContext);
 
 
   const handleClick = () => {

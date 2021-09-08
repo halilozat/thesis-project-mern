@@ -28,7 +28,9 @@
     margin-right: 20px;
     margin-top: 20px !important;
     word-wrap:break-word;
-
+    box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.3);
+    transition-property: transform;
+    transition-duration: .5s;
   }
 
   .userBookTitle h3{
@@ -38,7 +40,8 @@
   
   .userBookTitle:hover{
     transform: translateX(-4%) translateY(-7%) rotatez(6deg);
-    transition-duration: .5s
+    transition-property: transform;
+    transition-duration: .5s ;
   }
 
   .ulList{

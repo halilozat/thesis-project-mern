@@ -1,6 +1,4 @@
 import { useState, useEffect, useContext } from "react"
-import Post from "../post/Post"
-import Share from "../share/Share"
 import Book from '../books/Book'
 import "./feed.css"
 import axios from 'axios'
@@ -16,7 +14,8 @@ export default function Feed({ username }) {
   useEffect(() => {
     const fetchBooks = async () => {
 
-      const res = await axios.get("/books/allbooks/getall")
+      const res =
+       await axios.get("/books/allbooks/getall")
 
       setBooks(
         res.data.sort((p1, p2) => {

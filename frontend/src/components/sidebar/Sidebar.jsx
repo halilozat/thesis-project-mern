@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { NavDropdown, Dropdown, SplitButton, Navbar, Nav, Container } from 'react-bootstrap'
+import React, { useState, useEffect, useContext } from "react";
 import "./sidebar.css"
 import {
-    RssFeed,
     PlayCircleFilledOutlined,
     Event,
     MenuBook,
@@ -17,6 +15,7 @@ import SerieModal from '../modals/SerieModal'
 import MovieModal from '../modals/MovieModal'
 import { Link } from "react-router-dom";
 import { IntlProvider, FormattedMessage } from 'react-intl';
+import { AuthContext } from "../../context/AuthContext";
 
 
 const content = {
@@ -25,6 +24,7 @@ const content = {
         chats: "Sohbet",
         videos: "Videolar",
         books: "Kitaplar",
+        myBooks: "Kitaplarım",
         movies: "Filmler",
         series: "Diziler",
         myNotes: "Notlarım",
@@ -35,6 +35,7 @@ const content = {
         chats: "Chats",
         videos: "Videos",
         books: "Books",
+        myBooks: "My Books",
         movies: "Movies",
         series: "Series",
         myNotes: "My Notes",
@@ -56,6 +57,10 @@ export default function Sidebar() {
     const defaultLocale = isLocalLanguage ? isLocalLanguage : navigator.language;
     const [language, setLanguage] = useState(defaultLocale);
 
+    const { user } = useContext(AuthContext)
+
+
+
     useEffect(() => {
         localStorage.setItem('language', language)
     }, [language])
@@ -70,10 +75,12 @@ export default function Sidebar() {
                     <hr className="sidebarHr" />
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
-                            <Home fontSize="large" className="sidebarIcon side" />
-                            <span className="sidebarListItemText">
-                                <FormattedMessage id="home" />
-                            </span>
+                            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                                <Home fontSize="large" className="sidebarIcon side" />
+                                <span className="sidebarListItemText">
+                                    <FormattedMessage id="home" />
+                                </span>
+                            </Link>
                         </li>
                         <li className="sidebarListItem">
                             <Link to="/messenger" style={{ textDecoration: "none", color: "white" }}>
@@ -94,6 +101,14 @@ export default function Sidebar() {
                                 <MenuBook fontSize="large" className="sidebarIcon" />
                                 <span className="sidebarListItemText">
                                     <FormattedMessage id="books" />
+                                </span>
+                            </Link>
+                        </li>
+                        <li className="sidebarListItem">
+                            <Link to={`/${user.username}`} style={{ textDecoration: "none", color: "white" }}>
+                                <MenuBook fontSize="large" className="sidebarIcon" />
+                                <span className="sidebarListItemText">
+                                    <FormattedMessage id="myBooks" />
                                 </span>
                             </Link>
                         </li>
