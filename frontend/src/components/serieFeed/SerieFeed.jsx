@@ -3,6 +3,7 @@ import "./feed.css"
 import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext"
 import Movie from "../movies/Movie"
+import Serie from "../series/Serie"
 
 
 const SerieFeed = () => {
@@ -32,7 +33,7 @@ const SerieFeed = () => {
                 <div className="feedWrapper">
 
                     {series.map((b) => (
-                        <Movie key={b._id} serie={b} />
+                        <Serie key={b._id} serie={b} />
                     ))}
 
 
