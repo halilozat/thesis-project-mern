@@ -1,5 +1,5 @@
 import React from 'react'
-import './movie.css'
+import './serie.css'
 import ThemeContext from "../../context/ThemeContext"
 import { useContext } from "react"
 import Sidebar from '../../components/sidebar/Sidebar'
@@ -8,7 +8,8 @@ import RightBurger from "../../components/rightbar/RightBurger"
 import MovieFeed from "../../components/movieFeed/MovieFeed"
 import { Row, Col } from 'react-bootstrap'
 
-const Movie = () => {
+
+const Serie = () => {
 
     const { theme, setTheme } = useContext(ThemeContext)
 
@@ -33,4 +34,4 @@ const Movie = () => {
     )
 }
 
-export default Movie
+export default Serie

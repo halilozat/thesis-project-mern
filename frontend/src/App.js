@@ -17,6 +17,7 @@ import bookDetail from './components/bookDetail/BookDetail';
 import Note from './pages/note/Note';
 import UserBooks from './pages/userBooks/UserBooks';
 import Movie from './pages/movie/Movie';
+import Serie from './pages/serie/Serie';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/profile/:username" component={Profile} />
             <Route path="/books" component={Book} />
             <Route path="/movies" component={Movie} />
+            <Route path="/series" component={Serie} />
             <Route path="/:username" component={UserBooks} />
             <Route path="/bookDetail" component={bookDetail} />
             <Route path="/myNotes" component={Note} />
