@@ -3,6 +3,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { PermMedia } from "@material-ui/icons"
 
 
 export default function SimpleModal() {
@@ -103,6 +104,21 @@ export default function SimpleModal() {
                                 </div>
                                 <div className="app-form-group buttons">
                                     <form onSubmit={submitHandler}>
+                                        
+                                        <div className="shareOptions">
+                                            <label htmlFor="file" className="shareOption">
+                                                <PermMedia htmlColor="tomato" className="shareIcon" />
+                                                <span className="shareOptionText">Foto Ekle </span>
+                                                <input
+                                                    style={{ display: "none" }}
+                                                    type="file"
+                                                    id="file"
+                                                    accept=".png,.jpeg,.jpg"
+                                                    onChange={(e) => setFile(e.target.files[0])}
+                                                />
+                                            </label>
+                                        </div>
+
                                         <button className="app-form-button" onClick={handleClose}>KAPAT</button>
                                         <button className="app-form-button" type="submit">EKLE</button>
                                     </form>

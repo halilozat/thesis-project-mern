@@ -27,12 +27,14 @@ export default function Movie({ movie }) {
                 <div className="movie_header">
                     <img className="locandina" src={publicFolder + movie.img} />
                     <h1>{movie.name}</h1>
-                    <h4>{movie.writer}</h4>
+                    <h4>{movie.point} Puan</h4>
                     <span className="minutes">İnceleyen: {user.username}</span>
-                    {/* <p className="type">Action, Crime, Fantasy</p> */}
                 </div>
                 <div className="movie_desc">
                     <p className="text">
+                        <br />
+                        <br />
+
                         {movie?.desc}
                     </p>
                 </div>
