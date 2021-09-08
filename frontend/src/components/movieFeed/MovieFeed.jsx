@@ -3,6 +3,7 @@ import Book from '../books/Book'
 import "./feed.css"
 import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext"
+import Movie from "../movies/Movie"
 
 export default function Feed({ username }) {
 

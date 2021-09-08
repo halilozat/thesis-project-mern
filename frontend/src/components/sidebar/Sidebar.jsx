@@ -113,10 +113,12 @@ export default function Sidebar() {
                             </Link>
                         </li>
                         <li className="sidebarListItem">
-                            <Movie fontSize="large" className="sidebarIcon" />
-                            <span className="sidebarListItemText">
-                                <FormattedMessage id="movies" />
-                            </span>
+                            <Link to="/movies" style={{ textDecoration: "none", color: "white" }}>
+                                <Movie fontSize="large" className="sidebarIcon" />
+                                <span className="sidebarListItemText">
+                                    <FormattedMessage id="movies" />
+                                </span>
+                            </Link>
                         </li>
                         <li className="sidebarListItem">
                             <LocalMovies fontSize="large" className="sidebarIcon" />

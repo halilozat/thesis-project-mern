@@ -31,9 +31,6 @@ export default function Feed({ username }) {
       <div className="feed">
         <div className="feedWrapper">
 
-          {/* <Share /> */}
-          {/* <Book /> */}
-
           {books.map((b) => (
             <Book key={b._id} book={b} />
           ))}
