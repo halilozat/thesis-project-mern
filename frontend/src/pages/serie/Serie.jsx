@@ -23,7 +23,7 @@ const Serie = () => {
                         <Sidebar />
                     </Col>
                     <Col xs={8} md={8}>
-                        <MovieFeed />
+                        <SerieFeed />
                     </Col>
                     <Col xs={2} md={2}>
                         <RightBurger />
