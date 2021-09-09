@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './note.css'
-import { useHistory } from "react-router-dom";
 import Topbar from '../../components/topbar/Topbar';
 import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
@@ -17,20 +16,17 @@ export default function Note() {
     const [isListening, setIsListening] = useState(false)
     const [note, setNote] = useState(null)
     const [savedNotes, setSavedNotes] = useState([])
-    const history = useHistory()
 
     const { user } = useContext(AuthContext);
-    const desc = useRef();
+    // const desc = useRef();
 
-    const parseRegex = /(?<id>(\d*))\s(?=nolu).*(?<command>(sil))$/giu;
-    const voiceMatch = parseRegex.exec(note);
+    // const parseRegex = /(?<id>(\d*))\s(?=nolu).*(?<command>(sil))$/giu;
+    // const voiceMatch = parseRegex.exec(note);
 
     const allNoteRemoveRegex = /tüm notları sil/giu;
     const allNotesRemoveMatch = allNoteRemoveRegex.test(note);
 
-    useEffect(() => {
-        handleListen()
-    }, [isListening])
+    
 
     // useEffect(() => {
     //     localStorage.setItem('savedNotes', JSON.stringify(savedNotes))
@@ -72,6 +68,10 @@ export default function Note() {
             }
         }
     }
+
+    useEffect(() => {
+        handleListen()
+    }, [isListening])
 
     const handleSaveNote = async (e) => {
         e.preventDefault();

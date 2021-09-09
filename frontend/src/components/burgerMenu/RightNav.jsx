@@ -95,10 +95,11 @@ const RightNav = ({ open }) => {
               <div >Profile Git!</div>
             </Link>
 
-            <a style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
+            <a href="!#" style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
 
 
             <a
+              href="!#"
               className="dropdown-content"
               onClick={handleClick}
               style={{ textDecoration: "none", cursor: "pointer", textAlign: "center" }}

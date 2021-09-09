@@ -13,7 +13,7 @@ export default function Profile() {
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username;
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   useEffect(() => {
     const fetchUser = async () => {

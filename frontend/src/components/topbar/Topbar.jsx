@@ -1,23 +1,10 @@
 import "./topbar.css"
 import { Search } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import { logoutCall } from '../../apiCalls'
 import Burger from "../burgerMenu/Burger";
 
 
 export default function Topbar() {
-
-  const { dispatch } = useContext(AuthContext);
-
-
-  const handleClick = () => {
-    logoutCall(
-      dispatch
-    );
-  }
-
 
   return (
     <div className="topbarContainer">

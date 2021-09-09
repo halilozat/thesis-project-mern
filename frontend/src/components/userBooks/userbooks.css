@@ -12,6 +12,10 @@
     --orange: #FF9F1C;
 
   }
+
+  .bookLength{
+    font-size: large;
+  }
   
   .userBookContainer{
     background-color: #182028;

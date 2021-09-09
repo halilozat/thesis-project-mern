@@ -32,18 +32,17 @@ const UserBooks = () => {
             <h1 className="userBookTitle anarchy block">
                 OKUDUĞUM KİTAPLAR
                 <br />
-                <h3>({books.length} Kitap)</h3>
+                <div className="bookLength">({books.length} Kitap)</div>
             </h1>
 
 
             <ul className="ulList">
 
                 {books.map((b) => (
-                    
+
                     <UserBookList key={b._id} book={b} />
                 ))}
 
-                {/* <Post key={b._id} book={b} /> */}
 
 
 

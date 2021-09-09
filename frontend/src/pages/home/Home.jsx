@@ -8,7 +8,7 @@ import ThemeContext from "../../context/ThemeContext"
 import { useContext } from "react"
 
 export default function Home() {
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
 
 

@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import { Cancel, PermMedia } from "@material-ui/icons"
+import { PermMedia } from "@material-ui/icons"
 
 
 

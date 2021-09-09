@@ -162,7 +162,7 @@ export default function Messenger() {
                                         <div className="card-header msg_head">
                                             <div className="d-flex bd-highlight">
                                                 <div className="img_cont">
-                                                    <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" className="rounded-circle user_img" />
+                                                    <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" className="rounded-circle user_img" alt=""/>
                                                     {/* <span className="online_icon"></span> */}
                                                 </div>
                                                 <div className="user_info">

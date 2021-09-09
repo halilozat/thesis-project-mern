@@ -45,14 +45,7 @@ const content = {
 
 
 export default function Sidebar() {
-    const [open, setOpen] = useState(false)
-    const handleOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
-
+    
     const isLocalLanguage = localStorage.getItem('language')
     const defaultLocale = isLocalLanguage ? isLocalLanguage : navigator.language;
     const [language, setLanguage] = useState(defaultLocale);
@@ -121,10 +114,12 @@ export default function Sidebar() {
                             </Link>
                         </li>
                         <li className="sidebarListItem">
-                            <LocalMovies fontSize="large" className="sidebarIcon" />
-                            <span className="sidebarListItemText">
-                                <FormattedMessage id="series" />
-                            </span>
+                            <Link to="/series" style={{ textDecoration: "none", color: "white" }}>
+                                <LocalMovies fontSize="large" className="sidebarIcon" />
+                                <span className="sidebarListItemText">
+                                    <FormattedMessage id="series" />
+                                </span>
+                            </Link>
                         </li>
                         <li className="sidebarListItem">
                             <EventNote fontSize="large" className="sidebarIcon" />

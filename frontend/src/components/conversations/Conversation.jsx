@@ -35,6 +35,7 @@ export default function Conversation({ conversation, currentUser }) {
                                     ? publicFolder + user.profilePicture
                                     : publicFolder + "person/noAvatar.png"
                             }
+                            alt=""
                             className="rounded-circle user_img" />
                         
                     </div>

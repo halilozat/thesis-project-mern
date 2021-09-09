@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react"
-import Book from '../books/Book'
 import "./feed.css"
 import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext"

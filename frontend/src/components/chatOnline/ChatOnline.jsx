@@ -44,6 +44,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
                                         ? publicFolder + o.profilePicture
                                         : publicFolder + "person/noAvatar.png"
                                 }
+                                alt=""
                                 className="rounded-circle user_img"
                             />
                             <span className="online_icon"></span>

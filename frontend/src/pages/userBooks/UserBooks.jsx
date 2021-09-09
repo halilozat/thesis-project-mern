@@ -3,14 +3,13 @@ import './userbooks.css'
 import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import UsersBooks from "../../components/userBooks/UserBooks"
-import RightBurger from "../../components/rightbar/RightBurger"
 import { Row, Col } from 'react-bootstrap'
 import ThemeContext from "../../context/ThemeContext"
 import { useContext } from "react"
 
 const UserBooks = () => {
 
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
 
     return (

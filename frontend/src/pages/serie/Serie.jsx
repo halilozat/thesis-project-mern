@@ -5,13 +5,13 @@ import { useContext } from "react"
 import Sidebar from '../../components/sidebar/Sidebar'
 import Topbar from '../../components/topbar/Topbar'
 import RightBurger from "../../components/rightbar/RightBurger"
-import MovieFeed from "../../components/movieFeed/MovieFeed"
 import { Row, Col } from 'react-bootstrap'
+import SerieFeed from '../../components/serieFeed/SerieFeed'
 
 
 const Serie = () => {
 
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
 
     return (

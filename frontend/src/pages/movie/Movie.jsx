@@ -10,7 +10,7 @@ import { Row, Col } from 'react-bootstrap'
 
 const Movie = () => {
 
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
 
     return (

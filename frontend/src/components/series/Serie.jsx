@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './movie.scss'
+import './serie.scss'
 import axios from 'axios'
 import {
     Share,
@@ -7,27 +7,26 @@ import {
     ChatBubble
 } from "@material-ui/icons";
 
-export default function Movie({ movie }) {
+const Serie = ({ serie }) => {
 
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
     const [user, setUser] = useState({})
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${movie.userId}`)
+            const res = await axios.get(`/users?userId=${serie.userId}`)
             setUser(res.data)
         }
         fetchUser()
-    }, [movie.userId])
+    }, [serie.userId])
 
     return (
-
         <div className="movie_card" id="bright">
             <div className="info_section">
                 <div className="movie_header">
-                    <img className="locandina" src={publicFolder + movie.img} alt=""/>
-                    <h1>{movie.name}</h1>
-                    <h4>{movie.point} Puan</h4>
+                    <img className="locandina" src={publicFolder + serie.img} alt=""/>
+                    <h1>{serie.name}</h1>
+                    <h4>{serie.point} Puan</h4>
                     <span className="minutes">İnceleyen: {user.username}</span>
                 </div>
                 <div className="movie_desc">
@@ -35,7 +34,7 @@ export default function Movie({ movie }) {
                         <br />
                         <br />
 
-                        {movie?.desc}
+                        {serie?.desc}
                     </p>
                 </div>
                 <div className="movie_social">
@@ -49,14 +48,11 @@ export default function Movie({ movie }) {
             <div
                 className="blur_back bright_back"
                 style={{
-                    background: `url(${publicFolder + movie.img})`,
+                    background: `url(${publicFolder + serie.img})`,
                 }}
             ></div>
         </div >
-
-
-
-
-
     )
 }
+
+export default Serie

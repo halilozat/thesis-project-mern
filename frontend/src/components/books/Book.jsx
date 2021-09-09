@@ -28,7 +28,7 @@ export default function Book({ book }) {
         <div className="movie_card" id="bright">
             <div className="info_section">
                 <div className="movie_header">
-                    <img className="locandina" src={publicFolder + book.img} />
+                    <img className="locandina" src={publicFolder + book.img} alt="" />
                     <h1>{book.name}</h1>
                     <h4>{book.writer}</h4>
                     <span className="minutes">İnceleyen: {user.username}</span>

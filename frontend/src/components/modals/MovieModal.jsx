@@ -9,7 +9,7 @@ import { PermMedia } from "@material-ui/icons"
 export default function SimpleModal() {
 
     const { user } = useContext(AuthContext);
-    const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+    // const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
     const name = useRef();
     const desc = useRef();
     const point = useRef();
