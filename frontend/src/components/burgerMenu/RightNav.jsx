@@ -45,7 +45,7 @@ const RightNav = ({ open }) => {
 
   return (
     <Ul className="topbarContainer" open={open}>
-      <li style={{ marginRight: "30%" }}>
+      <li style={{ marginRight: "20%" }}>
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Person fontSize="large" />
@@ -61,25 +61,10 @@ const RightNav = ({ open }) => {
           </div>
         </div>
       </li>
+      
       <hr />
+      
       <li style={{ marginRight: "20%" }}>
-        <div className="theme-switch-wrapper">
-          <label className="theme-switch" htmlFor="checkbox">
-            <input type="checkbox" id="checkbox" onClick={() => setTheme(theme === "light" ? 'dark' : 'light')} />
-            <div className="slider round"></div>
-          </label>
-        </div>
-      </li>
-      <hr />
-      <li style={{ marginRight: "20%" }}>
-        {/* <div className="topbarLinks">
-            <span className="topbarLink">Home</span>
-          <span className="topbarLink">Profile</span>
-          </div> */}
-
-
-
-
 
         <div className="dropdown">
           <img src={
@@ -95,11 +80,11 @@ const RightNav = ({ open }) => {
               <div >Profile Git!</div>
             </Link>
 
-            <a href="!#" style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
+            <a href="#" style={{ color: "black", cursor: "pointer" }} onClick={() => setTheme(theme === "light" ? 'dark' : 'light')}>Temayı Değiştir</a>
 
 
             <a
-              href="!#"
+              href="#"
               className="dropdown-content"
               onClick={handleClick}
               style={{ textDecoration: "none", cursor: "pointer", textAlign: "center" }}
@@ -109,8 +94,20 @@ const RightNav = ({ open }) => {
 
 
           </div>
+
         </div>
 
+      </li>
+      
+      <hr />
+
+      <li style={{ marginRight: "20%" }}>
+        <div className="theme-switch-wrapper">
+          <label className="theme-switch" htmlFor="checkbox">
+            <input type="checkbox" id="checkbox" onClick={() => setTheme(theme === "light" ? 'dark' : 'light')} />
+            <div className="slider round"></div>
+          </label>
+        </div>
       </li>
 
 

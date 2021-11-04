@@ -14,7 +14,7 @@ const UserBookList = ({ book }) => {
             setUser(res.data)
         }
         fetchUser()
-    }, [user, book.userId])
+    }, [book.userId])
 
     return (
         <>

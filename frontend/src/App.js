@@ -53,9 +53,9 @@ function App() {
             </Route>
             <Route path="/profile/:username" component={Profile} />
             <Route path="/books" component={Book} />
+            <Route path="/:username" component={UserBooks} />
             <Route path="/movies" component={Movie} />
             <Route path="/series" component={Serie} />
-            <Route path="/:username" component={UserBooks} />
             <Route path="/bookDetail" component={bookDetail} />
             <Route path="/myNotes" component={Note} />
           </Switch>

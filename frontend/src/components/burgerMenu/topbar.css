@@ -108,8 +108,10 @@
   }
   
   .dropdown {
+    align-items: center;
     position: relative;
     display: inline-block;
+    margin-right: 20px !important;
   }
   
   .dropdown-content {
