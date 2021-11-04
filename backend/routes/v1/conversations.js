@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const conversationController = require("../controllers/conversations");
+const conversationController = require("../../controllers/v1/conversations");
 
 
 //new conv

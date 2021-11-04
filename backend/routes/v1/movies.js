@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const movieController = require("../controllers/movies")
+const movieController = require("../../controllers/v1/movies")
 
 
 //create a movie

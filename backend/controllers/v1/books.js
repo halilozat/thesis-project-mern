@@ -1,5 +1,5 @@
-const Book = require("../models/Book");
-const User = require("../models/User");
+const Book = require("../../models/Book");
+const User = require("../../models/User");
 
 
 //create a Book

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const serieController = require("../controllers/series")
+const serieController = require("../../controllers/v1/series")
 
 
 //create a serie

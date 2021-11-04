@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const postController = require("../controllers/posts")
-const verify = require("../verifyToken");
+const postController = require("../../controllers/v1/posts")
+const verify = require("./verifyToken");
 
 
 //create a post

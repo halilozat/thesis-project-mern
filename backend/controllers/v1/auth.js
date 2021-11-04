@@ -1,9 +1,6 @@
-const User = require("../models/User");
+const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
-
-
-//const { registerValidation, loginValidation } = require("../validation/joiValidation");
 
 
 //register

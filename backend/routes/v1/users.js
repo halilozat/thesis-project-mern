@@ -1,8 +1,6 @@
-const User = require("../models/User");
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const userController = require("../controllers/users")
-const verify = require("../verifyToken");
+const userController = require("../../controllers/v1/users")
+const verify = require("./verifyToken");
 
 
 //update user

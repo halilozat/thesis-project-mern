@@ -1,5 +1,5 @@
-const Serie = require("../models/Serie");
-const User = require("../models/User");
+const Serie = require("../../models/Serie");
+const User = require("../../models/User");
 
 
 //create a serie

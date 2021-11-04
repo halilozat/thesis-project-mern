@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const noteController = require("../controllers/notes")
+const noteController = require("../../controllers/v1/notes")
 
 
 //create a note

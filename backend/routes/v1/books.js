@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const bookController = require("../controllers/books")
+const bookController = require("../../controllers/v1/books")
 
 
 //create a book

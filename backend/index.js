@@ -4,17 +4,11 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const userRoute = require("./routes/users");
-const authRoute = require("./routes/auth");
-const postRoute = require("./routes/posts");
-const noteRoute = require("./routes/notes");
-const bookRoute = require("./routes/books")
-const movieRoute = require("./routes/movies")
-const serieRoute = require("./routes/series")
-const conversationRoute = require("./routes/conversations");
-const messageRoute = require("./routes/messages");
 const multer = require("multer")
 const path = require("path")
+
+const apiRouter = require('./routes/index')
+
 
 dotenv.config()
 
@@ -43,15 +37,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
     }
 });
 
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/notes", noteRoute);
-app.use("/api/books", bookRoute);
-app.use("/api/movies", movieRoute);
-app.use("/api/series", serieRoute);
-app.use("/api/conversations", conversationRoute);
-app.use("/api/messages", messageRoute);
+
+app.use("/api", apiRouter);
 
 
 app.listen(process.env.PORT, () => {
