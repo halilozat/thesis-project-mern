@@ -1,9 +1,17 @@
+/** Dependencies */
 import { useState, useEffect, useContext } from "react"
+import axios from 'axios'
+
+/** Components */
 import Post from "../post/Post"
 import Share from "../share/Share"
+
+/** Contexts */
+import { AuthContext } from "../../../context/AuthContext"
+
+/** Styles */
 import "./feed.css"
-import axios from 'axios'
-import { AuthContext } from "../../context/AuthContext"
+
 
 export default function Feed({ username }) {
 

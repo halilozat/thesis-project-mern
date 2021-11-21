@@ -8,8 +8,8 @@ import {
 import axios from 'axios'
 import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
-import { AuthContext } from "../../context/AuthContext"
-import ThesisService from "../../services/ThesisService";
+import { AuthContext } from "../../../context/AuthContext"
+import ThesisService from "../../../services/ThesisService";
 
 
 export default function Post({ post }) {

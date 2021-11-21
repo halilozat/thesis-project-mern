@@ -1,8 +1,8 @@
 import './share.css'
 import { Cancel, PermMedia } from "@material-ui/icons"
 import { useContext, useRef, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import ThesisService from '../../services/ThesisService';
+import { AuthContext } from "../../../context/AuthContext";
+import ThesisService from '../../../services/ThesisService';
 
 export default function Share() {
 

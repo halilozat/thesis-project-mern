@@ -5,7 +5,7 @@ import { Row, Col } from 'react-bootstrap'
 /** Components */
 import Topbar from "../../components/MenuComponent/topbar/Topbar"
 import Sidebar from "../../components/MenuComponent/sidebar/Sidebar"
-import Feed from "../../components/feed/Feed"
+import Feed from "../../components/PostComponent/feed/Feed"
 import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
 
 /** Contexts */
