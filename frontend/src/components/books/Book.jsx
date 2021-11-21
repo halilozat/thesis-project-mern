@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import './book.scss'
-import axios from 'axios'
 import {
     Share,
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
-// import { format } from 'timeago.js'
-// import { Link } from 'react-router-dom'
+import ThesisService from '../../services/ThesisService';
 
 export default function Book({ book }) {
 
     const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER
     const [user, setUser] = useState({})
-    // const { user: currentUser } = useContext(AuthContext)
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${book.userId}`)
+            const res = await ThesisService.FetchUserByUserId(book.userId)
             setUser(res.data)
         }
         fetchUser()

@@ -53,7 +53,7 @@ function App() {
             </Route>
             <Route path="/profile/:username" component={Profile} />
             <Route path="/books" component={Book} />
-            <Route path="/:username" component={UserBooks} />
+            <Route path="/myBooks/:username" component={UserBooks} />
             <Route path="/movies" component={Movie} />
             <Route path="/series" component={Serie} />
             <Route path="/bookDetail" component={bookDetail} />

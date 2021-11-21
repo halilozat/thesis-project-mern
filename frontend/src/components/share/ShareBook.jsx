@@ -2,7 +2,7 @@ import './share.css'
 import { Cancel, PermMedia } from "@material-ui/icons"
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
+import ThesisService from '../../services/ThesisService';
 
 export default function Share() {
 
@@ -26,11 +26,11 @@ export default function Share() {
             data.append("file", file);
             newBook.img = fileName;
             try {
-                await axios.post("/upload", data);
+                await ThesisService.UploadService(data)
             } catch (err) { }
         }
         try {
-            await axios.post("/books", newBook);
+            await ThesisService.AddBook(newBook)
             window.location.reload();
         } catch (err) { }
     };

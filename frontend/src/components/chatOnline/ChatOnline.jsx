@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import ThesisService from '../../services/ThesisService';
 
 export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
@@ -9,7 +9,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
     useEffect(() => {
         const getFriends = async () => {
-            const res = await axios.get("/users/friends/" + currentId);
+            const res = await ThesisService.GetUserFriends(currentId)
             setFriends(res.data);
         };
 
@@ -22,9 +22,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
     const handleClick = async (user) => {
         try {
-            const res = await axios.get(
-                `/conversations/find/${currentId}/${user._id}`
-            );
+            const res = await ThesisService.FindConversationsByUserId(currentId,user._id)
             setCurrentChat(res.data);
         } catch (err) {
             console.log(err);

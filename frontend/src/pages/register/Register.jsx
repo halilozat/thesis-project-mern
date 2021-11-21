@@ -1,8 +1,14 @@
-import axios from "axios";
-import { useRef } from "react";
-import "./register.css";
+/** Dependencies */
 import { useHistory } from "react-router";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+
+/** Styles */
+import "./register.css";
+
+/** Services */
+import ThesisService from "../../services/ThesisService";
+
 
 export default function Register() {
     const username = useRef();
@@ -22,7 +28,7 @@ export default function Register() {
                 password: password.current.value,
             };
             try {
-                await axios.post("/auth/register", user);
+                await ThesisService.AuthRegister(user)
                 history.push("/login");
             } catch (err) {
                 console.log(err);

@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import "./feed.css"
-import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext"
 import Movie from "../movies/Movie"
+import ThesisService from "../../services/ThesisService"
 
 export default function Feed({ username }) {
 
@@ -14,9 +14,8 @@ export default function Feed({ username }) {
   useEffect(() => {
     const fetchMovies = async () => {
 
-      const res =
-       await axios.get("/movies/allmovies/getall")
-
+      const res = await ThesisService.GetAllMovies()
+      console.log(res)
        setMovies(
         res.data.sort((p1, p2) => {
           return new Date(p2.createdAt) - new Date(p1.createdAt);

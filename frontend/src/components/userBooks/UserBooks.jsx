@@ -1,6 +1,6 @@
-import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import ThesisService from '../../services/ThesisService'
 import UserBookList from '../userBookList/UserBookList'
 import './userbooks.css'
 
@@ -14,7 +14,7 @@ const UserBooks = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const res = await axios.get("books/myBooks/" + user.username)
+            const res = await ThesisService.GetMyBooks(user.username)
             console.log(res)
             setBooks(
                 res.data.sort((p1, p2) => {

@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import "./feed.css"
-import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext"
 import Serie from "../series/Serie"
+import ThesisService from "../../services/ThesisService"
 
 
 const SerieFeed = ({ username }) => {
@@ -13,8 +13,7 @@ const SerieFeed = ({ username }) => {
     useEffect(() => {
         const fetchSeries = async () => {
 
-            const res =
-                await axios.get("/series/allseries/getall")
+            const res = await ThesisService.GetAllSeries()
 
             setSeries(
                 res.data.sort((p1, p2) => {

@@ -1,8 +1,17 @@
+/** Dependencies */
 import { useState, useEffect, useContext } from "react"
+
+/** Components */
 import Book from '../books/Book'
-import "./feed.css"
-import axios from 'axios'
+
+/** Contexts */
 import { AuthContext } from "../../context/AuthContext"
+
+/** Services */
+import ThesisService from "../../services/ThesisService"
+
+/** Styles */
+import "./feed.css"
 
 export default function Feed({ username }) {
 
@@ -15,7 +24,7 @@ export default function Feed({ username }) {
     const fetchBooks = async () => {
 
       const res =
-       await axios.get("/books/allbooks/getall")
+       await ThesisService.GetAllBooks()
 
       setBooks(
         res.data.sort((p1, p2) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import axios from 'axios';
+import ThesisService from '../../services/ThesisService';
 
 export default function Conversation({ conversation, currentUser }) {
     const [user, setUser] = useState(null)
@@ -12,7 +12,7 @@ export default function Conversation({ conversation, currentUser }) {
 
         const getUser = async () => {
             try {
-                const res = await axios("/users?userId=" + friendId);
+                const res = await ThesisService.FetchUserByUserId(friendId);
                 setUser(res.data)
             } catch (err) {
                 console.log(err);

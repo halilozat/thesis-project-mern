@@ -98,7 +98,7 @@ export default function Sidebar() {
                             </Link>
                         </li>
                         <li className="sidebarListItem">
-                            <Link to={`/${user.username}`} style={{ textDecoration: "none", color: "white" }}>
+                            <Link to={`/myBooks/${user.username}`} style={{ textDecoration: "none", color: "white" }}>
                                 <MenuBook fontSize="large" className="sidebarIcon" />
                                 <span className="sidebarListItemText">
                                     <FormattedMessage id="myBooks" />

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext'
 import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBook, TrackChanges, Info } from "@material-ui/icons";
 import { useContext, useEffect, useState } from "react";
+import ThesisService from "../../services/ThesisService";
 
 const RightUl = styled.ul`
   list-style: none;
@@ -49,7 +50,7 @@ export default function Rightbar({ user, open }) {
     useEffect(() => {
         const getFriends = async () => {
             try {
-                const friendList = await axios.get("/users/friends/" + user._id);
+                const friendList = await ThesisService.GetUserFriends(user._id);
                 setFriends(friendList.data);
             } catch (err) {
                 console.log(err);

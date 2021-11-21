@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './serie.scss'
-import axios from 'axios'
 import {
     Share,
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
+import ThesisService from '../../services/ThesisService';
 
 const Serie = ({ serie }) => {
 
@@ -14,7 +14,7 @@ const Serie = ({ serie }) => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${serie.userId}`)
+            const res = await ThesisService.FetchUserByUserId(serie.userId)
             setUser(res.data)
         }
         fetchUser()

@@ -2,8 +2,8 @@ import './modal.css'
 import React, { useContext, useRef, useState } from 'react';
 import { Modal } from '@material-ui/core';
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
 import { PermMedia } from "@material-ui/icons"
+import ThesisService from '../../services/ThesisService';
 
 export default function SimpleModal() {
 
@@ -29,11 +29,11 @@ export default function SimpleModal() {
             data.append("file", file);
             newSerie.img = fileName;
             try {
-                await axios.post("/upload", data);
+                await ThesisService.UploadService(data);
             } catch (err) { }
         }
         try {
-            await axios.post("/series", newSerie);
+            await ThesisService.AddSerie(newSerie);
             window.location.reload();
         } catch (err) { }
     };

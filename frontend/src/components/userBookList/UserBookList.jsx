@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import ThesisService from '../../services/ThesisService'
 import './userbooks.css'
 
 const UserBookList = ({ book }) => {
@@ -10,7 +10,7 @@ const UserBookList = ({ book }) => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${book.userId}`)
+            const res = await ThesisService.FetchUserByUserId(book.userId) 
             setUser(res.data)
         }
         fetchUser()

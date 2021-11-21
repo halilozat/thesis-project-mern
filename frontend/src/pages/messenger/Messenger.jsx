@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useContext, useState, useEffect, useRef } from 'react'
 import Conversation from '../../components/conversations/Conversation'
 import Message from '../../components/messages/Message'
@@ -7,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext'
 import { io } from "socket.io-client";
 import ChatOnline from '../../components/chatOnline/ChatOnline'
 import './messenger.css'
+import ThesisService from '../../services/ThesisService'
 
 export default function Messenger() {
 
@@ -49,7 +49,7 @@ export default function Messenger() {
     useEffect(() => {
         const getConversations = async () => {
             try {
-                const res = await axios.get("/conversations/" + user._id);
+                const res = await ThesisService.GetConversations(user._id);
                 setConversations(res.data);
             } catch (err) {
                 console.log(err);
@@ -61,7 +61,7 @@ export default function Messenger() {
     useEffect(() => {
         const getMessages = async () => {
             try {
-                const res = await axios.get("/messages/" + currentChat?._id);
+                const res = await ThesisService.GetMessages(currentChat?._id);
                 setMessages(res.data);
             } catch (err) {
                 console.log(err);
@@ -89,7 +89,7 @@ export default function Messenger() {
         });
 
         try {
-            const res = await axios.post("/messages", message);
+            const res = await ThesisService.AddMessages(message)
             setMessages([...messages, res.data]);
             setNewMessage("");
         } catch (err) {

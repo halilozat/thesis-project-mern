@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './movie.scss'
-import axios from 'axios'
 import {
     Share,
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
+import ThesisService from '../../services/ThesisService';
 
 export default function Movie({ movie }) {
 
@@ -14,7 +14,7 @@ export default function Movie({ movie }) {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?userId=${movie.userId}`)
+            const res = await ThesisService.GetMovie(movie.userId)
             setUser(res.data)
         }
         fetchUser()

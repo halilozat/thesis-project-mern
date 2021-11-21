@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import './note.css'
 import Topbar from '../../components/topbar/Topbar';
-import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
+import ThesisService from '../../services/ThesisService';
 
 const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition
@@ -18,23 +18,14 @@ export default function Note() {
     const [savedNotes, setSavedNotes] = useState([])
 
     const { user } = useContext(AuthContext);
-    // const desc = useRef();
-
-    // const parseRegex = /(?<id>(\d*))\s(?=nolu).*(?<command>(sil))$/giu;
-    // const voiceMatch = parseRegex.exec(note);
 
     const allNoteRemoveRegex = /tüm notları sil/giu;
     const allNotesRemoveMatch = allNoteRemoveRegex.test(note);
 
-    
-
-    // useEffect(() => {
-    //     localStorage.setItem('savedNotes', JSON.stringify(savedNotes))
-    // }, [savedNotes])
 
     useEffect(() => {
         const fetchNotes = async () => {
-            const res = await axios.get("/notes")
+            const res = await ThesisService.FetchNotes()
             setSavedNotes(res.data);
         };
         fetchNotes();
@@ -81,7 +72,7 @@ export default function Note() {
         }
 
         try {
-            await axios.post("/notes", newNote);
+            await ThesisService.AddNotes(newNote);
             window.location.reload();
         } catch (err) { }
 

@@ -1,6 +1,9 @@
+/** Dependencies */
 import React, { useContext, useState } from "react";
 import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
+
+/** Styles */
 import "./login.css";
 
 export default function Login() {

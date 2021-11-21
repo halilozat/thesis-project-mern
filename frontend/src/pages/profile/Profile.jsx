@@ -4,10 +4,10 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
 import { useParams } from "react-router";
 import { Col } from 'react-bootstrap'
 import ThemeContext from "../../context/ThemeContext"
+import ThesisService from "../../services/ThesisService";
 
 export default function Profile() {
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -17,7 +17,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
+      const res = await ThesisService.FetchUserByUsername(username);
       setUser(res.data);
     };
     fetchUser();
