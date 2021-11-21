@@ -1,8 +1,16 @@
-import './share.css'
-import { Cancel, PermMedia } from "@material-ui/icons"
+/** Dependencies */
 import { useContext, useRef, useState } from "react";
+import { Cancel, PermMedia } from "@material-ui/icons"
+
+/** Styles */
+import './share.css'
+
+/** Contexts */
 import { AuthContext } from "../../../context/AuthContext";
+
+/** Services */
 import ThesisService from '../../../services/ThesisService';
+
 
 export default function Share() {
 

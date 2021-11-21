@@ -1,8 +1,17 @@
+/** Dependencies */
 import { useState, useEffect, useContext } from "react"
+
+/** Styles */
 import "./feed.css"
-import { AuthContext } from "../../context/AuthContext"
+
+/** Contexts */
+import { AuthContext } from "../../../context/AuthContext"
+
+/** Services */
+import ThesisService from "../../../services/ThesisService"
+
+/** Components */
 import Serie from "../series/Serie"
-import ThesisService from "../../services/ThesisService"
 
 
 const SerieFeed = ({ username }) => {

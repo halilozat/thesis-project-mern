@@ -1,3 +1,4 @@
+/** Dependencies */
 import React, { useEffect, useState } from 'react'
 import './serie.scss'
 import {
@@ -5,7 +6,10 @@ import {
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
-import ThesisService from '../../services/ThesisService';
+
+/** Services */
+import ThesisService from '../../../services/ThesisService';
+
 
 const Serie = ({ serie }) => {
 

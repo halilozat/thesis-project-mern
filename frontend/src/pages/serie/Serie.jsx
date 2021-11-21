@@ -7,7 +7,7 @@ import { useContext } from "react"
 import Sidebar from '../../components/MenuComponent/sidebar/Sidebar'
 import Topbar from '../../components/MenuComponent/topbar/Topbar'
 import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
-import SerieFeed from '../../components/serieFeed/SerieFeed'
+import SerieFeed from '../../components/SerieComponent/serieFeed/SerieFeed'
 
 /** Contexts */
 import ThemeContext from "../../context/ThemeContext"
