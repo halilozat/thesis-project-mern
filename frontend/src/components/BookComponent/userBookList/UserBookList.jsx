@@ -1,5 +1,10 @@
+/** Dependencies */
 import React, { useEffect, useState } from 'react'
-import ThesisService from '../../services/ThesisService'
+
+/** Services */
+import ThesisService from '../../../services/ThesisService'
+
+/** Styles */
 import './userbooks.css'
 
 const UserBookList = ({ book }) => {

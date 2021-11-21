@@ -1,11 +1,15 @@
-import React from 'react'
-import ThemeContext from "../../context/ThemeContext"
+/** Dependencies */
 import { useContext } from "react"
+import { Row, Col } from 'react-bootstrap'
+
+/** Contexts */
+import ThemeContext from "../../context/ThemeContext"
+
+/** Components */
 import Sidebar from '../../components/sidebar/Sidebar'
 import Topbar from '../../components/topbar/Topbar'
 import RightBurger from "../../components/rightbar/RightBurger"
-import BookFeed from "../../components/bookFeed/BookFeed"
-import { Row, Col } from 'react-bootstrap'
+import BookFeed from "../../components/BookComponent/bookFeed/BookFeed"
 
 
 const Book = () => {

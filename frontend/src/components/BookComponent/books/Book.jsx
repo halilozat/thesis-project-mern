@@ -1,11 +1,16 @@
+/** Dependencies */
 import React, { useEffect, useState } from 'react'
-import './book.scss'
 import {
     Share,
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
-import ThesisService from '../../services/ThesisService';
+
+/** Styles */
+import './book.scss'
+
+/** Services */
+import ThesisService from '../../../services/ThesisService';
 
 export default function Book({ book }) {
 

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../context/AuthContext'
-import ThesisService from '../../services/ThesisService'
+import { AuthContext } from '../../../context/AuthContext'
+import ThesisService from '../../../services/ThesisService'
 import UserBookList from '../userBookList/UserBookList'
 import './userbooks.css'
 

@@ -5,10 +5,10 @@ import { useState, useEffect, useContext } from "react"
 import Book from '../books/Book'
 
 /** Contexts */
-import { AuthContext } from "../../context/AuthContext"
+import { AuthContext } from "../../../context/AuthContext"
 
 /** Services */
-import ThesisService from "../../services/ThesisService"
+import ThesisService from "../../../services/ThesisService"
 
 /** Styles */
 import "./feed.css"

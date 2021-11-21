@@ -1,11 +1,18 @@
-import React from 'react'
-import './userbooks.css'
+/** Dependencies */
+import { useContext } from "react"
+import { Row, Col } from 'react-bootstrap'
+
+/** Contexts */
+import ThemeContext from "../../context/ThemeContext"
+
+/** Components */
 import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
-import UsersBooks from "../../components/userBooks/UserBooks"
-import { Row, Col } from 'react-bootstrap'
-import ThemeContext from "../../context/ThemeContext"
-import { useContext } from "react"
+import UsersBooks from "../../components/BookComponent/userBooks/UserBooks"
+
+/** Styles */
+import './userbooks.css'
+
 
 const UserBooks = () => {
 
