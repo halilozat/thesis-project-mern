@@ -1,9 +1,5 @@
+/** Dependencies */
 import 'semantic-ui-css/semantic.min.css'
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import Profile from "./pages/profile/Profile";
-import Register from "./pages/register/Register";
-import Messenger from './pages/messenger/Messenger';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,13 +7,24 @@ import {
   Redirect
 } from "react-router-dom";
 import { useContext } from 'react';
-import { AuthContext } from './context/AuthContext';
+
+/** Pages */
+import Home from "./pages/home/Home";
 import Book from './pages/book/Book'
-import bookDetail from './components/bookDetail/BookDetail';
 import Note from './pages/note/Note';
-import UserBooks from './pages/userBooks/UserBooks';
+import Login from "./pages/login/Login";
 import Movie from './pages/movie/Movie';
 import Serie from './pages/serie/Serie';
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/register/Register";
+import Messenger from './pages/messenger/Messenger';
+import UserBooks from './pages/userBooks/UserBooks';
+
+/** Components */
+import bookDetail from './components/BookComponent/bookDetail/BookDetail';
+
+/** Contexts */
+import { AuthContext } from './context/AuthContext';
 
 
 function App() {

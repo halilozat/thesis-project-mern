@@ -6,8 +6,8 @@ import { Row, Col } from 'react-bootstrap'
 import ThemeContext from "../../context/ThemeContext"
 
 /** Components */
-import Topbar from "../../components/topbar/Topbar"
-import Sidebar from "../../components/sidebar/Sidebar"
+import Topbar from "../../components/MenuComponent/topbar/Topbar"
+import Sidebar from "../../components/MenuComponent/sidebar/Sidebar"
 import UsersBooks from "../../components/BookComponent/userBooks/UserBooks"
 
 /** Styles */

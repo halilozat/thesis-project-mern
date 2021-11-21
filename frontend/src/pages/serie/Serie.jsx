@@ -1,12 +1,19 @@
-import React from 'react'
-import './serie.css'
-import ThemeContext from "../../context/ThemeContext"
-import { useContext } from "react"
-import Sidebar from '../../components/sidebar/Sidebar'
-import Topbar from '../../components/topbar/Topbar'
-import RightBurger from "../../components/rightbar/RightBurger"
+/** Dependencies */
 import { Row, Col } from 'react-bootstrap'
+import { useContext } from "react"
+
+
+/** Components */
+import Sidebar from '../../components/MenuComponent/sidebar/Sidebar'
+import Topbar from '../../components/MenuComponent/topbar/Topbar'
+import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
 import SerieFeed from '../../components/serieFeed/SerieFeed'
+
+/** Contexts */
+import ThemeContext from "../../context/ThemeContext"
+
+/** Styles */
+import './serie.css'
 
 
 const Serie = () => {

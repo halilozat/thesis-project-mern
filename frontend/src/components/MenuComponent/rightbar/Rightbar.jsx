@@ -1,14 +1,22 @@
-import "./rightbar.css";
-import Categories from "../categories/Categories";
+/** Dependencies */
 import styled from 'styled-components';
 import axios from 'axios'
-import Weekly from "../weekly/Weekly";
 import { Link } from "react-router-dom";
-import { AuthContext } from '../../context/AuthContext'
 import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBook, TrackChanges, Info } from "@material-ui/icons";
 import { useContext, useEffect, useState } from "react";
-import ThesisService from "../../services/ThesisService";
 
+/** Components */
+import Categories from "../../categories/Categories";
+import Weekly from "./weekly/Weekly";
+
+/** Contexts */
+import { AuthContext } from '../../../context/AuthContext'
+
+/** Services */
+import ThesisService from "../../../services/ThesisService";
+
+/** Styles */
+import "./rightbar.css";
 const RightUl = styled.ul`
   list-style: none;
   display: flex;

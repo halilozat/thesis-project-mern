@@ -1,11 +1,20 @@
-import "./home.css"
-import Topbar from "../../components/topbar/Topbar"
-import Sidebar from "../../components/sidebar/Sidebar"
-import Feed from "../../components/feed/Feed"
-import RightBurger from "../../components/rightbar/RightBurger"
-import { Row, Col } from 'react-bootstrap'
-import ThemeContext from "../../context/ThemeContext"
+/** Dependencies */
 import { useContext } from "react"
+import { Row, Col } from 'react-bootstrap'
+
+/** Components */
+import Topbar from "../../components/MenuComponent/topbar/Topbar"
+import Sidebar from "../../components/MenuComponent/sidebar/Sidebar"
+import Feed from "../../components/feed/Feed"
+import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
+
+/** Contexts */
+import ThemeContext from "../../context/ThemeContext"
+
+
+/** Styles */
+import "./home.css"
+
 
 export default function Home() {
     const { theme } = useContext(ThemeContext)

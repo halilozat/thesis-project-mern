@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import './note.css'
-import Topbar from '../../components/topbar/Topbar';
+import Topbar from '../../components/MenuComponent/topbar/Topbar';
 import { AuthContext } from '../../context/AuthContext';
 import ThesisService from '../../services/ThesisService';
 

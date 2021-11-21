@@ -1,13 +1,23 @@
-import "./profile.css";
-import Topbar from "../../components/topbar/Topbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Feed from "../../components/feed/Feed";
-import Rightbar from "../../components/rightbar/Rightbar";
+/** Dependencies */
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { Col } from 'react-bootstrap'
+
+/** Components */
+import Topbar from "../../components/MenuComponent/topbar/Topbar";
+import Sidebar from "../../components/MenuComponent/sidebar/Sidebar";
+import Feed from "../../components/feed/Feed";
+import Rightbar from "../../components/MenuComponent/rightbar/Rightbar";
+
+/** Contexts */
 import ThemeContext from "../../context/ThemeContext"
+
+/** Services */
 import ThesisService from "../../services/ThesisService";
+
+/** Styles */
+import "./profile.css";
+
 
 export default function Profile() {
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;

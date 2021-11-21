@@ -1,12 +1,20 @@
+/** Dependencies */
 import React from 'react'
-import './movie.css'
-import ThemeContext from "../../context/ThemeContext"
-import { useContext } from "react"
-import Sidebar from '../../components/sidebar/Sidebar'
-import Topbar from '../../components/topbar/Topbar'
-import RightBurger from "../../components/rightbar/RightBurger"
-import MovieFeed from "../../components/movieFeed/MovieFeed"
 import { Row, Col } from 'react-bootstrap'
+import { useContext } from "react"
+
+/** Styles */
+import './movie.css'
+
+/** Contexts */
+import ThemeContext from "../../context/ThemeContext"
+
+/** Components */
+import Sidebar from '../../components/MenuComponent/sidebar/Sidebar'
+import Topbar from '../../components/MenuComponent/topbar/Topbar'
+import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
+import MovieFeed from "../../components/movieFeed/MovieFeed"
+
 
 const Movie = () => {
 

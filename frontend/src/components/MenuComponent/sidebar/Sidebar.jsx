@@ -10,12 +10,12 @@ import {
     WhatsApp,
     Home
 } from "@material-ui/icons";
-import BookModal from '../modals/BookModal'
-import SerieModal from '../modals/SerieModal'
-import MovieModal from '../modals/MovieModal'
+import BookModal from '../../modals/BookModal'
+import SerieModal from '../../modals/SerieModal'
+import MovieModal from '../../modals/MovieModal'
 import { Link } from "react-router-dom";
 import { IntlProvider, FormattedMessage } from 'react-intl';
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../../context/AuthContext";
 
 
 const content = {

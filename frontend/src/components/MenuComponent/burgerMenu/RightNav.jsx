@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Person, Chat, Notifications } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
-import ThemeContext from '../../context/ThemeContext';
-import { logoutCall } from '../../apiCalls';
+import { AuthContext } from '../../../context/AuthContext';
+import ThemeContext from '../../../context/ThemeContext';
+import { logoutCall } from '../../../apiCalls';
 import './topbar.css'
 
 const Ul = styled.ul`

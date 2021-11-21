@@ -1,5 +1,10 @@
+/** Dependencies */
 import React, { useState } from 'react';
+
+/** Styles */
 import styled from 'styled-components';
+
+/** Components */
 import Rightbar from './Rightbar';
 
 const StyledBurger = styled.div`
