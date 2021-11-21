@@ -1,5 +1,9 @@
-import './message.css'
+/** Dependencies */
 import { format } from 'timeago.js'
+
+/** Styles */
+import './message.css'
+
 
 export default function Message({ message, own }) {
     return (

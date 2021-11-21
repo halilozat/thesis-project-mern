@@ -1,12 +1,22 @@
+/** Dependencies */
 import React, { useContext, useState, useEffect, useRef } from 'react'
-import Conversation from '../../components/conversations/Conversation'
+import { io } from "socket.io-client";
+
+/** Components */
+import Conversation from '../../components/MessengerComponent/conversations/Conversation'
 import Message from '../../components/MessengerComponent/messages/Message'
 import Topbar from '../../components/MenuComponent/topbar/Topbar'
+import ChatOnline from '../../components/MessengerComponent/chatOnline/ChatOnline'
+
+/** Contexts */
 import { AuthContext } from '../../context/AuthContext'
-import { io } from "socket.io-client";
-import ChatOnline from '../../components/chatOnline/ChatOnline'
-import './messenger.css'
+
+/** Services */
 import ThesisService from '../../services/ThesisService'
+
+/** Styles */
+import './messenger.css'
+
 
 export default function Messenger() {
 

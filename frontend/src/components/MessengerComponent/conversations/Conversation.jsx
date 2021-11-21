@@ -1,6 +1,9 @@
-import React from 'react'
+/** Dependencies */
 import { useEffect, useState } from 'react'
-import ThesisService from '../../services/ThesisService';
+
+/** Services */
+import ThesisService from '../../../services/ThesisService';
+
 
 export default function Conversation({ conversation, currentUser }) {
     const [user, setUser] = useState(null)

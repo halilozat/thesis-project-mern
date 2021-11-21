@@ -1,5 +1,9 @@
+/** Dependencies */
 import React, { useEffect, useState } from 'react'
-import ThesisService from '../../services/ThesisService';
+
+/** Services */
+import ThesisService from '../../../services/ThesisService';
+
 
 export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 
