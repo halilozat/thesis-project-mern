@@ -1,11 +1,17 @@
+/** Dependencies */
 import React, { useEffect, useState } from 'react'
-import './movie.scss'
 import {
     Share,
     Favorite,
     ChatBubble
 } from "@material-ui/icons";
-import ThesisService from '../../services/ThesisService';
+
+/** Styles */
+import './movie.scss'
+
+/** Services */
+import ThesisService from '../../../services/ThesisService';
+
 
 export default function Movie({ movie }) {
 

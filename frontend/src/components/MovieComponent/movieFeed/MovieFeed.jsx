@@ -1,8 +1,18 @@
+/** Dependencies */
 import { useState, useEffect, useContext } from "react"
+
+/** Styles */
 import "./feed.css"
-import { AuthContext } from "../../context/AuthContext"
-import Movie from "../movies/Movie"
-import ThesisService from "../../services/ThesisService"
+
+/** Components */
+import Movie from "../../MovieComponent/movies/Movie"
+
+/** Contexts */
+import { AuthContext } from "../../../context/AuthContext"
+
+/** Services */
+import ThesisService from "../../../services/ThesisService"
+
 
 export default function Feed({ username }) {
 

@@ -13,7 +13,7 @@ import ThemeContext from "../../context/ThemeContext"
 import Sidebar from '../../components/MenuComponent/sidebar/Sidebar'
 import Topbar from '../../components/MenuComponent/topbar/Topbar'
 import RightBurger from "../../components/MenuComponent/rightbar/RightBurger"
-import MovieFeed from "../../components/movieFeed/MovieFeed"
+import MovieFeed from "../../components/MovieComponent/movieFeed/MovieFeed"
 
 
 const Movie = () => {
