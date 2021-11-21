@@ -6,7 +6,7 @@ import { Add, Remove, Work, LocationOn, Cake, Favorite, Movie, Theaters, MenuBoo
 import { useContext, useEffect, useState } from "react";
 
 /** Components */
-import Categories from "../../categories/Categories";
+import Categories from "./categories/Categories";
 import Weekly from "./weekly/Weekly";
 
 /** Contexts */

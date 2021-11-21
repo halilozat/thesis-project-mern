@@ -1,3 +1,4 @@
+/** Styles */
 import './categories.css'
 
 export default function Categories() {
