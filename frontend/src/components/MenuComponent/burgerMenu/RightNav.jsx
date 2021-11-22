@@ -1,13 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+/** Dependencies */
+import { useContext } from 'react';
 import { Person, Chat, Notifications } from "@material-ui/icons"
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import styled from 'styled-components';
+
+/** Contexts */
 import { AuthContext } from '../../../context/AuthContext';
 import ThemeContext from '../../../context/ThemeContext';
-import { logoutCall } from '../../../apiCalls';
-import './topbar.css'
 
+/** Services */
+import { logoutCall } from '../../../apiCalls';
+
+/** Styles */
+import './topbar.css'
 const Ul = styled.ul`
   list-style: none;
   display: flex;
@@ -29,6 +34,7 @@ const Ul = styled.ul`
     }
   }
 `;
+
 
 const RightNav = ({ open }) => {
 

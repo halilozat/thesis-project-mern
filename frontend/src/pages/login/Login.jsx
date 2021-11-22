@@ -1,9 +1,18 @@
+/** Dependencies */
 import { useContext, useRef } from "react";
-import "./login.css";
-import { loginCall } from "../../apiCalls";
-import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
+
+/** Styles */
+import "./login.css";
+
+/** Contexts */
+import { AuthContext } from "../../context/AuthContext";
+
+/** Services */
+import ThesisService from "../../services/ThesisService";
+
+import { loginCall } from "../../apiCalls";
 
 
 
@@ -14,6 +23,7 @@ export default function Login() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    
     loginCall(
       { email: email.current.value, password: password.current.value },
       dispatch
