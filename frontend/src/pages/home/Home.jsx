@@ -13,7 +13,7 @@ import ThemeContext from "../../context/ThemeContext"
 
 
 /** Styles */
-import "./home.css"
+import "./home.scss"
 
 
 export default function Home() {

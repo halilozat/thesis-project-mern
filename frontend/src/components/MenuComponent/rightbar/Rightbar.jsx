@@ -16,11 +16,8 @@ import { AuthContext } from '../../../context/AuthContext'
 import ThesisService from "../../../services/ThesisService";
 
 /** Styles */
-import "./rightbar.css";
+import "./rightbar.scss";
 const RightUl = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-flow: row nowrap;  
   z-index: 10;
   @media (max-width: 1024px) {
     align-items: center;
@@ -88,19 +85,16 @@ export default function Rightbar({ user, open }) {
 
     const HomeRightbar = () => {
         return (
-            <RightUl open={open}>
-                <li>
-
-                    <div className="rightBar">
-                        <Weekly />
-
-                        <Categories />
-
-                        <img className="rightbarAd" src={`${publicFolder}manzara.jpg`} alt="" />
-
-                    </div>
-                </li>
-            </RightUl>
+            // <RightUl open={open}>
+            // </RightUl>
+            <div className="rightBar">
+                <Weekly />
+                <br />
+                <Categories />
+                <br />
+                <Weekly />
+                <br />
+            </div>
         );
     };
 
@@ -142,7 +136,7 @@ export default function Rightbar({ user, open }) {
 
                 <h4 className="rightbarTitle"><TrackChanges />2021 Hedefleri<TrackChanges /></h4>
                 <div className="rightbarInfo">
-                <Link to={`${user.username}`}>
+                    <Link to={`${user.username}`}>
                         <div className="rightbarInfoItem">
                             <span className="rightbarInfoKey"><MenuBook /> Okuduğu Kitaplar :</span>
                             <span className="rightbarInfoValue">40/100</span>

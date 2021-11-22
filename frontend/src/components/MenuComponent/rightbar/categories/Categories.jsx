@@ -1,26 +1,26 @@
 /** Styles */
-import './categories.css'
+import './categories.scss'
 
 export default function Categories() {
     return (
-        <div className="weekly">
-                    <h4 className="rightbarTitle">Kategoriler</h4>
+        <div className="categories">
+                    <h4 className="categoryTitle">Kategoriler</h4>
                     <hr />
                     <div className="categoryContainer">
-                        <span className="birthdayText">
-                            <button className="secilen">Kitaplar</button>
+                        <span className="categoryText">
+                            <h1 className="category">Kitaplar</h1>
                         </span>
                     </div>
                     <br className="sidebarHr" />
                     <div className="categoryContainer">
-                        <span className="birthdayText">
-                            <button className="secilen">Filmler</button>
+                        <span className="categoryText">
+                            <h1 className="category">Filmler</h1>
                         </span>
                     </div>
                     <br className="sidebarHr" />
                     <div className="categoryContainer">
-                        <span className="birthdayText">
-                            <button className="secilen">Diziler</button>
+                        <span className="categoryText">
+                            <h1 className="category">Diziler</h1>
                         </span>
                     </div>
                 </div>

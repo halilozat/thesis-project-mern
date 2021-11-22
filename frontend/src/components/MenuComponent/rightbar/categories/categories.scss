@@ -1,0 +1,36 @@
+  .categories {
+    border-radius: 10px !important;
+
+    .categoryTitle{
+      margin-top: 20px !important;
+      margin-left: 8px;
+      font-size: 15px;
+      font-weight: 900;
+      font-style: oblique;
+      text-transform: uppercase;
+    } 
+
+    .categoryContainer {
+      display: flex;
+      align-items: left;
+      text-align: left;
+      
+      .categoryText {
+        font-size: 15px;
+        left: 0 !important;
+      }
+      
+      .category{
+        display: inline;
+        cursor: pointer;
+        color: white;
+        font-size: small;
+      } 
+    }
+  
+  
+  
+  
+
+  
+}

@@ -3,7 +3,7 @@ import { useContext, useRef, useState } from "react";
 import { Cancel, PermMedia } from "@material-ui/icons"
 
 /** Styles */
-import './share.css'
+import './share.scss'
 
 /** Contexts */
 import { AuthContext } from "../../../context/AuthContext";
@@ -54,7 +54,8 @@ export default function Share() {
                               : publicFolder + "person/noAvatar.png"}
                           alt=""
                     />
-                    <input
+                    <textarea 
+                        rows="5" cols="50"
                         placeholder={"Aklında ne var " + user.username + "?"}
                         className="shareInput"
                         ref={desc}

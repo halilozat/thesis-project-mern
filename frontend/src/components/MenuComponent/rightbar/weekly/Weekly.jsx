@@ -1,32 +1,30 @@
-import './weekly.css'
+
 import { Movie, Theaters, MenuBook } from "@material-ui/icons";
+import './weekly.scss'
 
 export default function Weekly() {
     return (
         <div className="weekly">
-            <h4 className="rightbarTitle">Haftanın Güzelleri</h4>
+            <h4 className="weeklyTitle">Haftanın Güzelleri</h4>
             <hr/>
-            <div className="birthdayContainer">
-                <Movie fontSize="large" className="sidebarIcon" />
-                <span className="birthdayText">
-                    <h3 className="book">Haftanın Filmi </h3>
-                    <button className="secilen">Esaretin Bedeli</button>
+            <div className="weeklyContainer">
+                <span className="weeklyText">
+                    <Movie />
+                    <h1 className="secilen">Esaretin Bedeli</h1>
                 </span>
             </div>
             <br className="sidebarHr" />
-            <div className="birthdayContainer">
-                <Theaters fontSize="large" className="sidebarIcon" />
-                <span className="birthdayText">
-                    <h3 className="book">Haftanın Dizisi </h3>
-                    <button className="secilen">Friends</button>
+            <div className="weeklyContainer">
+                <span className="weeklyText">
+                    <Theaters />
+                    <h1 className="secilen">Friends</h1>
                 </span>
             </div>
             <br className="sidebarHr" />
-            <div className="birthdayContainer">
-                <MenuBook fontSize="large" className="sidebarIcon" />
-                <span className="birthdayText">
-                    <h3 className="book">Haftanın Kitabı </h3>
-                    <button className="secilen">Suç ve Ceza</button>
+            <div className="weeklyContainer">
+                <span className="weeklyText">
+                    <MenuBook />
+                    <h1 className="secilen">Suç ve Ceza</h1>
                 </span>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"
-import "./post.css"
+import "./post.scss"
 import { MoreVert } from "@material-ui/icons";
 import {
   Chat,

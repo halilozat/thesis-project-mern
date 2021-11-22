@@ -34,7 +34,7 @@
       .searchbar {
         width: 350px;
         height: 55px !important;
-        background-color: #1a2236 !important;
+        background-color: $darkBgColor !important;
         border-radius: 30px;
         display: flex;
         align-items: center;
@@ -42,7 +42,7 @@
         .searchIcon {
           font-size: 35px !important;
           margin-left: 10px;
-          color: black;
+          color: wheat;
         }
 
         .searchInput {
