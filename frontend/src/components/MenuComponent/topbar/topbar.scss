@@ -1,8 +1,9 @@
+@import '../../../assets/stylesheets/_variables.scss';
 
 .topbarContainer {
     height: 100px !important;
     width: 100%;
-    background-color: #293145 !important;
+    background-color: $menuBackgroundColor !important;
     display: flex;
     flex-direction: row;
     align-items: center;

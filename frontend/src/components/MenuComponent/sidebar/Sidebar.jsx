@@ -1,5 +1,7 @@
+/** Dependencies */
 import React, { useState, useEffect, useContext } from "react";
-import "./sidebar.css"
+import { Link } from "react-router-dom";
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import {
     PlayCircleFilledOutlined,
     Event,
@@ -10,14 +12,19 @@ import {
     WhatsApp,
     Home
 } from "@material-ui/icons";
+
+/** Components */
 import BookModal from '../../ModalComponents/BookModal'
 import SerieModal from '../../ModalComponents/SerieModal'
 import MovieModal from '../../ModalComponents/MovieModal'
-import { Link } from "react-router-dom";
-import { IntlProvider, FormattedMessage } from 'react-intl';
+
+/** Contexts */
 import { AuthContext } from "../../../context/AuthContext";
 
+/** Styles */
+import "./sidebar.scss"
 
+/** Languages */
 const content = {
     "tr-TR": {
         home: "Ana Sayfa",
