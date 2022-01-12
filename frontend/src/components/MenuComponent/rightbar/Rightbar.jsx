@@ -154,7 +154,7 @@ export default function Rightbar({ user, open }) {
 
                 </div>
 
-                <h4 className="rightbarTitle">User friends</h4>
+                <h4 className="rightbarTitle">Arkadaşları</h4>
 
                 <div className="rightbarFollowings">
                     {friends.map((friend) => (
